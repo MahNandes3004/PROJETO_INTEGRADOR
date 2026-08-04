@@ -1,60 +1,144 @@
-let tamanho = 22;
+// ======================================
+// TAMANHO DA FONTE
+// ======================================
 
-function aumentarFonte(){
+let tamanhoFonte = 22;
 
-tamanho += 2;
+function mudarFonte(valor){
 
-document.body.style.fontSize = tamanho + "px";
+    tamanhoFonte += valor;
 
-}// 1. Função para Alto Contraste
-function alternarAltoContraste() {
-    // A função 'toggle' liga a classe se ela não existir, e desliga se ela já existir
-    document.body.classList.toggle('alto-contraste');
-}
-
-// 2. Função para Aumentar/Diminuir a Fonte Dinamicamente
-let tamanhoAtual = 16; // Tamanho inicial em pixels
-
-function mudarTamanhoFonte(mudanca) {
-    tamanhoAtual = tamanhoAtual + mudanca;
-    
-    // Limites para a fonte não ficar gigante ou minúscula demais
-    if (tamanhoAtual > 32) {
-        tamanhoAtual = 32;
-    } else if (tamanhoAtual < 12) {
-        tamanhoAtual = 12;
+    if(tamanhoFonte < 16){
+        tamanhoFonte = 16;
     }
 
-    // Aplica o novo tamanho ao corpo do site
-    document.body.style.fontSize = tamanhoAtual + 'px';
-}
+    if(tamanhoFonte > 36){
+        tamanhoFonte = 36;
+    }
 
-function diminuirFonte(){
-
-if(tamanho>16){
-
-tamanho -=2;
-
-document.body.style.fontSize = tamanho + "px";
+    document.body.style.fontSize = tamanhoFonte + "px";
 
 }
 
+
+// ======================================
+// ZOOM DA IMAGEM
+// ======================================
+
+let escalaImagem = 1;
+
+function zoomImagem(fator){
+
+    escalaImagem *= fator;
+
+    if(escalaImagem < 0.6){
+        escalaImagem = 0.6;
+    }
+
+    if(escalaImagem > 2.5){
+        escalaImagem = 2.5;
+    }
+
+    const imagem = document.getElementById("imagemNewton");
+
+    imagem.style.transform = `scale(${escalaImagem})`;
+
 }
 
-function altoContraste(){
 
-document.body.classList.toggle("alto-contraste");
+// ======================================
+// ALTO CONTRASTE
+// ======================================
+
+function alternarContraste(){
+
+    document.body.classList.toggle("alto-contraste");
 
 }
+
+
+// ======================================
+// MODOS DE LEITURA
+// ======================================
+
+let temaAtual = 0;
+
+function trocarTema(){
+
+    document.body.classList.remove("tema1");
+    document.body.classList.remove("tema2");
+    document.body.classList.remove("tema3");
+
+    temaAtual++;
+
+    if(temaAtual > 3){
+        temaAtual = 0;
+    }
+
+    switch(temaAtual){
+
+        case 1:
+            document.body.classList.add("tema1");
+        break;
+
+        case 2:
+            document.body.classList.add("tema2");
+        break;
+
+        case 3:
+            document.body.classList.add("tema3");
+        break;
+
+    }
+
+}
+
+
+// ======================================
+// FLASHCARDS
+// ======================================
 
 const cartoes = document.querySelectorAll(".cartao");
 
-cartoes.forEach(cartao=>{
+cartoes.forEach(function(cartao){
 
-cartao.addEventListener("click",()=>{
+    cartao.addEventListener("click", function(){
 
-cartao.classList.toggle("virado");
+        cartao.classList.toggle("virado");
+
+    });
 
 });
 
+
+// ======================================
+// DUPLO CLIQUE NA IMAGEM = VOLTA AO TAMANHO ORIGINAL
+// ======================================
+
+const imagem = document.getElementById("imagemNewton");
+
+imagem.addEventListener("dblclick", function(){
+
+    escalaImagem = 1;
+
+    imagem.style.transform = "scale(1)";
+
 });
+
+
+// ======================================
+// EFEITO AO PASSAR O MOUSE
+// ======================================
+
+imagem.addEventListener("mouseenter", function(){
+
+    imagem.style.cursor = "zoom-in";
+
+});
+
+
+// ======================================
+// MENSAGEM NO CONSOLE
+// ======================================
+
+console.log("Óptica Acessível carregado com sucesso!");

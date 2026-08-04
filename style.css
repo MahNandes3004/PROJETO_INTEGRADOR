@@ -1,209 +1,569 @@
+/* ==========================
+   CONFIGURAÇÕES GERAIS
+========================== */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
 
-font-family:Arial, Helvetica, sans-serif;
+    font-family:'Poppins',sans-serif;
 
-background:#F5F5F5;
+    background:#eef4f8;
 
-color:#111;
+    color:#222;
 
-font-size:22px;
+    font-size:22px;
 
-line-height:1.7;
+    line-height:1.8;
 
-transition:.4s;
+    transition:.4s;
 
 }
 
+/* ==========================
+   CABEÇALHO
+========================== */
+
 header{
 
-background:#003366;
+    background:linear-gradient(135deg,#003366,#005fa3);
 
-color:white;
+    color:white;
 
-padding:30px;
+    text-align:center;
 
-text-align:center;
+    padding:50px 20px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
+
+}
+
+header h1{
+
+    font-size:48px;
+
+    margin-bottom:15px;
+
+}
+
+header p{
+
+    font-size:22px;
+
+    max-width:800px;
+
+    margin:auto;
+
+}
+
+/* ==========================
+   BOTÕES
+========================== */
+
+.botoes{
+
+    margin-top:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
 
 }
 
 button{
 
-padding:12px;
+    background:#0b7dda;
 
-margin:8px;
+    color:white;
 
-font-size:20px;
+    border:none;
 
-cursor:pointer;
+    padding:12px 18px;
 
-border:none;
+    border-radius:10px;
 
-border-radius:8px;
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+    font-weight:bold;
 
 }
+
+button:hover{
+
+    background:#055fa3;
+
+    transform:scale(1.05);
+
+}
+
+/* ==========================
+   CONTEÚDO
+========================== */
 
 .conteudo{
 
-max-width:1000px;
+    max-width:1100px;
 
-margin:auto;
+    margin:50px auto;
 
-padding:30px;
+    background:white;
 
-text-align:center;
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
+
+}
+
+.conteudo h2{
+
+    text-align:center;
+
+    color:#003366;
+
+    margin-bottom:30px;
 
 }
 
-img{
+.conteudo p{
 
-width:300px;
-
-max-width:90%;
-
-margin:20px;
+    text-align:justify;
 
 }
+
+/* ==========================
+   IMAGEM
+========================== */
+
+#imagemNewton{
+
+    display:block;
+
+    margin:30px auto;
+
+    width:350px;
+
+    max-width:90%;
+
+    border-radius:15px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+
+    transition:.4s;
+
+}
+
+/* ==========================
+   TÍTULO DOS CARDS
+========================== */
+
+.titulo{
+
+    text-align:center;
+
+    margin-top:50px;
+
+    margin-bottom:30px;
+
+    color:#003366;
+
+}
+
+/* ==========================
+   FLASHCARDS
+========================== */
 
 .cards{
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-gap:30px;
+    flex-wrap:wrap;
 
-flex-wrap:wrap;
+    gap:30px;
 
-padding:40px;
+    margin-bottom:60px;
 
 }
 
 .cartao{
 
-width:250px;
+    width:260px;
 
-height:220px;
+    height:230px;
 
-perspective:1000px;
+    perspective:1000px;
 
-cursor:pointer;
+    cursor:pointer;
+
+}
+
+.cartao:hover{
+
+    transform:translateY(-8px);
 
 }
 
 .cartao-interno{
 
-position:relative;
+    position:relative;
 
-width:100%;
+    width:100%;
 
-height:100%;
+    height:100%;
 
-transition:0.8s;
+    transition:.8s;
 
-transform-style:preserve-3d;
+    transform-style:preserve-3d;
 
 }
 
 .cartao.virado .cartao-interno{
 
-transform:rotateY(180deg);
+    transform:rotateY(180deg);
 
 }
 
 .cartao-frente,
 .cartao-verso{
 
-position:absolute;
+    position:absolute;
 
-width:100%;
+    width:100%;
 
-height:100%;
+    height:100%;
 
-backface-visibility:hidden;
+    border-radius:20px;
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-align-items:center;
+    align-items:center;
 
-flex-direction:column;
+    flex-direction:column;
 
-border-radius:15px;
+    padding:20px;
 
-padding:20px;
+    text-align:center;
 
-box-shadow:0 0 10px gray;
+    backface-visibility:hidden;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.2);
 
 }
 
 .cartao-frente{
 
-background:#4CAF50;
+    background:linear-gradient(135deg,#4CAF50,#2E7D32);
 
-color:white;
+    color:white;
 
 }
 
 .cartao-verso{
 
-background:#FFC107;
+    background:linear-gradient(135deg,#FFC107,#ff9800);
 
-transform:rotateY(180deg);
+    color:#222;
+
+    transform:rotateY(180deg);
 
 }
+/* ==========================
+   LISTA DE CURIOSIDADES
+========================== */
+
+.conteudo ul{
+
+    margin-top:20px;
+
+    padding-left:30px;
+
+}
+
+.conteudo li{
+
+    margin:15px 0;
+
+}
+
+/* ==========================
+   RODAPÉ
+========================== */
 
 footer{
 
-background:#003366;
+    background:linear-gradient(135deg,#003366,#005fa3);
 
-color:white;
+    color:white;
 
-padding:20px;
+    text-align:center;
 
-text-align:center;
+    padding:25px;
 
-margin-top:30px;
+    margin-top:50px;
+
+    font-size:18px;
 
 }
 
+/* ==========================
+   ALTO CONTRASTE
+========================== */
+
 .alto-contraste{
 
-background:black;
+    background:#000;
 
-color:yellow;
+    color:#FFFF00;
 
 }
 
 .alto-contraste header,
 .alto-contraste footer{
 
-background:black;
+    background:#000;
 
-color:yellow;
+    color:#FFFF00;
+
+}
+
+.alto-contraste .conteudo{
+
+    background:#111;
+
+    color:#FFFF00;
+
+    border:2px solid #FFFF00;
+
+}
+
+.alto-contraste h2{
+
+    color:#FFFF00;
+
+}
+
+.alto-contraste button{
+
+    background:#FFFF00;
+
+    color:#000;
+
+    font-weight:bold;
 
 }
 
 .alto-contraste .cartao-frente{
 
-background:#111;
+    background:#111;
 
-border:3px solid yellow;
+    color:#FFFF00;
+
+    border:3px solid #FFFF00;
 
 }
 
 .alto-contraste .cartao-verso{
 
-background:#333;
+    background:#333;
 
-color:white;
+    color:#FFF;
 
-border:3px solid yellow;
+    border:3px solid #FFFF00;
+
+}
+
+/* ==========================
+   MODOS DE LEITURA
+========================== */
+
+.tema1{
+
+    background:#FFF8DC;
+
+    color:#222;
+
+}
+
+.tema1 .conteudo{
+
+    background:#FFFDF3;
+
+}
+
+.tema2{
+
+    background:#102A43;
+
+    color:white;
+
+}
+
+.tema2 .conteudo{
+
+    background:#1F3A56;
+
+    color:white;
+
+}
+
+.tema2 h2{
+
+    color:#90CAF9;
+
+}
+
+.tema3{
+
+    background:#202020;
+
+    color:#00FF99;
+
+}
+
+.tema3 .conteudo{
+
+    background:#2A2A2A;
+
+    color:#00FF99;
+
+}
+
+.tema3 h2{
+
+    color:#00FF99;
+
+}
+
+/* ==========================
+   ANIMAÇÕES
+========================== */
+
+button,
+.cartao,
+.conteudo,
+#imagemNewton{
+
+    transition:.4s;
+
+}
+
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+
+@media(max-width:900px){
+
+    header h1{
+
+        font-size:38px;
+
+    }
+
+    header p{
+
+        font-size:20px;
+
+    }
+
+    .conteudo{
+
+        margin:25px 15px;
+
+        padding:25px;
+
+    }
+
+    .cards{
+
+        gap:20px;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    body{
+
+        font-size:18px;
+
+    }
+
+    header{
+
+        padding:35px 15px;
+
+    }
+
+    header h1{
+
+        font-size:30px;
+
+    }
+
+    header p{
+
+        font-size:18px;
+
+    }
+
+    .botoes{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    button{
+
+        width:220px;
+
+        font-size:17px;
+
+    }
+
+    #imagemNewton{
+
+        width:250px;
+
+    }
+
+    .cartao{
+
+        width:90%;
+
+        max-width:300px;
+
+        height:220px;
+
+    }
+
+    footer{
+
+        font-size:16px;
+
+    }
 
 }

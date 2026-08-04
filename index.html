@@ -1,148 +1,231 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Óptica Acessível</title>
 
-<title>Óptica Acessível</title>
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+    <!-- Cabeçalho -->
 
-<h1>Óptica Acessível</h1>
+    <header>
 
-<p>Aprenda conceitos de Óptica de forma simples e acessível.</p>
+        <h1>Óptica Acessível</h1>
 
-<div class="botoes">
-<button onclick="aumentarFonte()">A+</button>
-<button onclick="diminuirFonte()">A-</button>
-<button onclick="altoContraste()">Alto Contraste</button>
-</div>
+        <p>
+            Aprenda os principais conceitos de Óptica de maneira simples,
+            interativa e acessível.
+        </p>
 
-</header>
+        <div class="botoes">
 
-<section class="conteudo">
+            <button onclick="mudarFonte(2)">A+</button>
 
-<h2>O que é o Disco de Newton?</h2>
+            <button onclick="mudarFonte(-2)">A-</button>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Newton_disc.png"
-alt="Disco de Newton dividido em várias cores">
+            <button onclick="zoomImagem(1.1)">
+                🔍 +
+            </button>
 
-<p>
+            <button onclick="zoomImagem(0.9)">
+                🔎 -
+            </button>
 
-O Disco de Newton demonstra que a luz branca é composta por diversas cores.
-Quando o disco gira rapidamente, nosso cérebro mistura as cores e enxergamos
-o disco quase branco.
+            <button onclick="alternarContraste()">
+                Alto Contraste
+            </button>
 
-</p>
+            <button onclick="trocarTema()">
+                Modo Leitura
+            </button>
 
-</section>
+        </div>
 
-<h2>Flash Cards</h2>
+    </header>
 
-<section class="cards">
+    <!-- Conteúdo -->
 
-<div class="cartao">
+    <main>
 
-<div class="cartao-interno">
+        <section class="conteudo">
 
-<div class="cartao-frente">
+            <h2>Disco de Newton</h2>
 
-<h3>Disco de Newton</h3>
+            <img id="imagemNewton"
+                src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Newton_disc.png"
+                alt="Disco de Newton">
 
-<p>Clique para descobrir.</p>
+            <p>
 
-</div>
+                O Disco de Newton demonstra que a luz branca é formada por
+                várias cores.
 
-<div class="cartao-verso">
+                Quando ele gira rapidamente, nosso cérebro mistura todas
+                essas cores e enxerga praticamente a cor branca.
 
-<p>Mostra que a luz branca é formada por várias cores.</p>
+            </p>
 
-</div>
+        </section>
 
-</div>
+        <!-- Flashcards -->
 
-</div>
+        <section>
 
-<div class="cartao">
+            <h2 class="titulo">Flashcards</h2>
 
-<div class="cartao-interno">
+            <div class="cards">
 
-<div class="cartao-frente">
+                <div class="cartao">
 
-<h3>Refração</h3>
+                    <div class="cartao-interno">
 
-<p>Clique para descobrir.</p>
+                        <div class="cartao-frente">
 
-</div>
+                            <h3>Disco de Newton</h3>
 
-<div class="cartao-verso">
+                            <p>Clique para virar.</p>
 
-<p>É a mudança de direção da luz ao passar de um meio para outro.</p>
+                        </div>
 
-</div>
+                        <div class="cartao-verso">
 
-</div>
+                            <p>
+                                Demonstra que a luz branca é composta
+                                por todas as cores do espectro visível.
+                            </p>
 
-</div>
+                        </div>
 
-<div class="cartao">
+                    </div>
 
-<div class="cartao-interno">
+                </div>
 
-<div class="cartao-frente">
+                <div class="cartao">
 
-<h3>Reflexão</h3>
+                    <div class="cartao-interno">
 
-<p>Clique para descobrir.</p>
+                        <div class="cartao-frente">
 
-</div>
+                            <h3>Refração</h3>
 
-<div class="cartao-verso">
+                            <p>Clique para virar.</p>
 
-<p>É quando a luz retorna ao encontrar uma superfície.</p>
+                        </div>
 
-</div>
+                        <div class="cartao-verso">
 
-</div>
+                            <p>
+                                Mudança de direção da luz ao passar
+                                de um meio para outro.
+                            </p>
 
-</div>
+                        </div>
 
-<div class="cartao">
+                    </div>
 
-<div class="cartao-interno">
+                </div>
 
-<div class="cartao-frente">
+                <div class="cartao">
 
-<h3>Lentes Convergentes</h3>
+                    <div class="cartao-interno">
 
-<p>Clique para descobrir.</p>
+                        <div class="cartao-frente">
 
-</div>
+                            <h3>Reflexão</h3>
 
-<div class="cartao-verso">
+                            <p>Clique para virar.</p>
 
-<p>Concentram os raios de luz em um ponto.</p>
+                        </div>
 
-</div>
+                        <div class="cartao-verso">
 
-</div>
+                            <p>
+                                A luz retorna ao encontrar
+                                uma superfície.
+                            </p>
 
-</div>
+                        </div>
 
-</section>
+                    </div>
 
-<footer>
+                </div>
 
-<p>Projeto de Acessibilidade • Óptica</p>
+                <div class="cartao">
 
-</footer>
+                    <div class="cartao-interno">
 
-<script src="script.js"></script>
+                        <div class="cartao-frente">
+
+                            <h3>Lentes Convergentes</h3>
+
+                            <p>Clique para virar.</p>
+
+                        </div>
+
+                        <div class="cartao-verso">
+
+                            <p>
+                                Concentram os raios de luz
+                                em um ponto chamado foco.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Curiosidades -->
+
+        <section class="conteudo">
+
+            <h2>Curiosidades</h2>
+
+            <ul>
+
+                <li>🌈 O arco-íris é um exemplo natural da dispersão da luz.</li>
+
+                <li>🔬 Isaac Newton descobriu que a luz branca é formada por diversas cores.</li>
+
+                <li>👓 Os óculos utilizam lentes para corrigir problemas de visão.</li>
+
+                <li>📷 As câmeras funcionam utilizando princípios da Óptica.</li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+
+            Projeto de Acessibilidade • Óptica
+
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
