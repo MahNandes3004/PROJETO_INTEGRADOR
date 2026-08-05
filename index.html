@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashcards Acessíveis - Projeto Integrador</title>
+    <title>Disco de Newton - Acessibilidade</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -11,54 +11,35 @@
 </head>
 <body>
 
-    <header class="barra-acessibilidade d-flex justify-content-center flex-wrap">
-        <button class="btn btn-light btn-acessibilidade" onclick="mudarTamanhoFonte(2)" aria-label="Aumentar tamanho da letra">
-            A+
-        </button>
-        <button class="btn btn-light btn-acessibilidade" onclick="mudarTamanhoFonte(-2)" aria-label="Diminuir tamanho da letra">
-            A-
-        </button>
-        <button class="btn btn-dark btn-acessibilidade" onclick="alternarAltoContraste()" aria-label="Ativar ou desativar alto contraste">
-            ◐ Alto Contraste
-        </button>
+    <header class="barra-acessibilidade sticky-top d-flex justify-content-center p-3 shadow-sm">
+        <button class="btn btn-outline-dark fw-bold mx-2" onclick="mudarTamanhoFonte(2)">A+</button>
+        <button class="btn btn-outline-dark fw-bold mx-2" onclick="mudarTamanhoFonte(-2)">A-</button>
+        <button class="btn btn-dark fw-bold mx-2" onclick="alternarAltoContraste()">◐ Alto Contraste</button>
     </header>
 
     <main class="container my-5">
         
-        <div class="text-center mb-5">
-            <h1>Estudos de História</h1>
-            <p>Clique nos botões acima para ajustar a tela para a sua melhor leitura.</p>
+        <div class="header-site text-center p-5 mb-5 rounded shadow">
+            <h1 class="display-4 fw-bold">O Disco de Newton</h1>
+            <p class="lead">Explorando a luz, as cores e a acessibilidade visual.</p>
         </div>
 
-        <section class="row">
+        <section class="area-interativa row align-items-center p-5 mb-5 rounded shadow">
+            <div class="col-md-6 text-center mb-4 mb-md-0">
+                
+                <div class="disco-newton mx-auto" id="disco"></div>
+                
+                <button class="btn btn-primary btn-lg mt-4 w-50" id="btn-girar" onclick="girarDisco()">Girar Disco</button>
+            </div>
             
-            <article class="col-md-4 col-sm-12 mb-4">
-                <div class="flashcard">
-                    <img src="https://via.placeholder.com/300x150" class="img-fluid mb-3 rounded" alt="Desenho de uma pirâmide do Egito Antigo no deserto">
-                    <h2>Egito Antigo</h2>
-                    <p>Civilização que se desenvolveu às margens do rio Nilo. Conhecida pela construção de grandes pirâmides e pela escrita hieroglífica.</p>
-                </div>
-            </article>
-
-            <article class="col-md-4 col-sm-12 mb-4">
-                <div class="flashcard">
-                    <img src="https://via.placeholder.com/300x150" class="img-fluid mb-3 rounded" alt="Ilustração do Coliseu de Roma em ruínas">
-                    <h2>Império Romano</h2>
-                    <p>Um dos maiores impérios da antiguidade. Deixou grandes legados na arquitetura, no direito e na língua (o latim).</p>
-                </div>
-            </article>
-
-            <article class="col-md-4 col-sm-12 mb-4">
-                <div class="flashcard">
-                    <img src="https://via.placeholder.com/300x150" class="img-fluid mb-3 rounded" alt="Desenho de um castelo medieval com muralhas de pedra">
-                    <h2>Idade Média</h2>
-                    <p>Período marcado pelo feudalismo, onde a sociedade era dividida entre nobres, clero e camponeses. Fortes castelos eram usados como proteção.</p>
-                </div>
-            </article>
-
+            <div class="col-md-6 texto-explicativo">
+                <h2>O Experimento</h2>
+                <p>O Disco de Newton é um dispositivo pintado com as sete cores do espectro visível. Quando gira muito rápido, as cores sobrepõem-se na nossa retina devido à persistência visual, criando a ilusão de que o disco ficou branco (ou cinza claro).</p>
+            </div>
         </section>
-    </main>
 
-    <script src="script.js"></script>
-</body>
-</html>
+        <section class="row">
+            <article class="col-md-4 mb-4">
+                <div class="flashcard h-100 p-4 rounded shadow-sm">
+                    <h3 class="titulo-card">Isaac Newton</h3>
+                    <p>Cientista que provou, usando um prisma de vidro, que a luz branca do Sol não
