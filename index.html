@@ -1,231 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Óptica Acessível</title>
-
-    <!-- Fonte -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- CSS -->
+    <title>Flashcards Acessíveis - Projeto Integrador</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- Cabeçalho -->
-
-    <header>
-
-        <h1>Óptica Acessível</h1>
-
-        <p>
-            Aprenda os principais conceitos de Óptica de maneira simples,
-            interativa e acessível.
-        </p>
-
-        <div class="botoes">
-
-            <button onclick="mudarFonte(2)">A+</button>
-
-            <button onclick="mudarFonte(-2)">A-</button>
-
-            <button onclick="zoomImagem(1.1)">
-                🔍 +
-            </button>
-
-            <button onclick="zoomImagem(0.9)">
-                🔎 -
-            </button>
-
-            <button onclick="alternarContraste()">
-                Alto Contraste
-            </button>
-
-            <button onclick="trocarTema()">
-                Modo Leitura
-            </button>
-
-        </div>
-
+    <header class="barra-acessibilidade d-flex justify-content-center flex-wrap">
+        <button class="btn btn-light btn-acessibilidade" onclick="mudarTamanhoFonte(2)" aria-label="Aumentar tamanho da letra">
+            A+
+        </button>
+        <button class="btn btn-light btn-acessibilidade" onclick="mudarTamanhoFonte(-2)" aria-label="Diminuir tamanho da letra">
+            A-
+        </button>
+        <button class="btn btn-dark btn-acessibilidade" onclick="alternarAltoContraste()" aria-label="Ativar ou desativar alto contraste">
+            ◐ Alto Contraste
+        </button>
     </header>
 
-    <!-- Conteúdo -->
+    <main class="container my-5">
+        
+        <div class="text-center mb-5">
+            <h1>Estudos de História</h1>
+            <p>Clique nos botões acima para ajustar a tela para a sua melhor leitura.</p>
+        </div>
 
-    <main>
+        <section class="row">
+            
+            <article class="col-md-4 col-sm-12 mb-4">
+                <div class="flashcard">
+                    <img src="https://via.placeholder.com/300x150" class="img-fluid mb-3 rounded" alt="Desenho de uma pirâmide do Egito Antigo no deserto">
+                    <h2>Egito Antigo</h2>
+                    <p>Civilização que se desenvolveu às margens do rio Nilo. Conhecida pela construção de grandes pirâmides e pela escrita hieroglífica.</p>
+                </div>
+            </article>
 
-        <section class="conteudo">
+            <article class="col-md-4 col-sm-12 mb-4">
+                <div class="flashcard">
+                    <img src="https://via.placeholder.com/300x150" class="img-fluid mb-3 rounded" alt="Ilustração do Coliseu de Roma em ruínas">
+                    <h2>Império Romano</h2>
+                    <p>Um dos maiores impérios da antiguidade. Deixou grandes legados na arquitetura, no direito e na língua (o latim).</p>
+                </div>
+            </article>
 
-            <h2>Disco de Newton</h2>
-
-            <img id="imagemNewton"
-                src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Newton_disc.png"
-                alt="Disco de Newton">
-
-            <p>
-
-                O Disco de Newton demonstra que a luz branca é formada por
-                várias cores.
-
-                Quando ele gira rapidamente, nosso cérebro mistura todas
-                essas cores e enxerga praticamente a cor branca.
-
-            </p>
+            <article class="col-md-4 col-sm-12 mb-4">
+                <div class="flashcard">
+                    <img src="https://via.placeholder.com/300x150" class="img-fluid mb-3 rounded" alt="Desenho de um castelo medieval com muralhas de pedra">
+                    <h2>Idade Média</h2>
+                    <p>Período marcado pelo feudalismo, onde a sociedade era dividida entre nobres, clero e camponeses. Fortes castelos eram usados como proteção.</p>
+                </div>
+            </article>
 
         </section>
-
-        <!-- Flashcards -->
-
-        <section>
-
-            <h2 class="titulo">Flashcards</h2>
-
-            <div class="cards">
-
-                <div class="cartao">
-
-                    <div class="cartao-interno">
-
-                        <div class="cartao-frente">
-
-                            <h3>Disco de Newton</h3>
-
-                            <p>Clique para virar.</p>
-
-                        </div>
-
-                        <div class="cartao-verso">
-
-                            <p>
-                                Demonstra que a luz branca é composta
-                                por todas as cores do espectro visível.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="cartao">
-
-                    <div class="cartao-interno">
-
-                        <div class="cartao-frente">
-
-                            <h3>Refração</h3>
-
-                            <p>Clique para virar.</p>
-
-                        </div>
-
-                        <div class="cartao-verso">
-
-                            <p>
-                                Mudança de direção da luz ao passar
-                                de um meio para outro.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="cartao">
-
-                    <div class="cartao-interno">
-
-                        <div class="cartao-frente">
-
-                            <h3>Reflexão</h3>
-
-                            <p>Clique para virar.</p>
-
-                        </div>
-
-                        <div class="cartao-verso">
-
-                            <p>
-                                A luz retorna ao encontrar
-                                uma superfície.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="cartao">
-
-                    <div class="cartao-interno">
-
-                        <div class="cartao-frente">
-
-                            <h3>Lentes Convergentes</h3>
-
-                            <p>Clique para virar.</p>
-
-                        </div>
-
-                        <div class="cartao-verso">
-
-                            <p>
-                                Concentram os raios de luz
-                                em um ponto chamado foco.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- Curiosidades -->
-
-        <section class="conteudo">
-
-            <h2>Curiosidades</h2>
-
-            <ul>
-
-                <li>🌈 O arco-íris é um exemplo natural da dispersão da luz.</li>
-
-                <li>🔬 Isaac Newton descobriu que a luz branca é formada por diversas cores.</li>
-
-                <li>👓 Os óculos utilizam lentes para corrigir problemas de visão.</li>
-
-                <li>📷 As câmeras funcionam utilizando princípios da Óptica.</li>
-
-            </ul>
-
-        </section>
-
     </main>
 
-    <footer>
-
-        <p>
-
-            Projeto de Acessibilidade • Óptica
-
-        </p>
-
-    </footer>
-
     <script src="script.js"></script>
-
 </body>
-
 </html>
