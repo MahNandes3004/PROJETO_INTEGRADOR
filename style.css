@@ -1,60 +1,215 @@
-/* Estilização com CSS (Etapa 2) */
-body {
-    font-size: 16px; /* Tamanho base da fonte */
-    transition: all 0.3s ease;
-    background-color: #f8f9fa;
-    color: #333;
+body{
+
+font-family:Arial;
+
+margin:0;
+
+background:#eef5ff;
+
+font-size:20px;
+
+transition:.4s;
+
 }
 
-/* Estilo da Barra de Acessibilidade */
-.barra-acessibilidade {
-    background-color: #e9ecef;
-    padding: 10px;
-    border-bottom: 2px solid #ccc;
+header{
+
+background:#1565c0;
+
+color:white;
+
+padding:20px;
+
+text-align:center;
+
 }
 
-/* Botões grandes e fáceis de clicar (Etapa 3) */
-.btn-acessibilidade {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-right: 10px;
-    padding: 10px 20px;
-    border: 2px solid #333;
+nav{
+
+margin-top:15px;
+
 }
 
-/* Estilo dos Flashcards com bordas evidentes e sombras */
-.flashcard {
-    background-color: #ffffff;
-    border: 2px solid #dee2e6;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-    height: 100%;
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+margin:15px;
+
+font-weight:bold;
+
 }
 
-/* ==========================================
-   CLASSE DE ALTO CONTRASTE (Ativada pelo JS)
-   ========================================== */
-body.alto-contraste {
-    background-color: #000000 !important;
-    color: #ffffff !important;
+main{
+
+padding:30px;
+
 }
 
-body.alto-contraste .barra-acessibilidade {
-    background-color: #222222 !important;
-    border-color: #ffff00 !important;
+.acessibilidade{
+
+text-align:center;
+
+padding:15px;
+
+background:#ddd;
+
 }
 
-body.alto-contraste .flashcard {
-    background-color: #000000 !important;
-    border: 2px solid #ffff00 !important;
-    color: #ffff00 !important;
-    box-shadow: 0 4px 8px rgba(255,255,0,0.2);
+button{
+
+padding:10px;
+
+margin:5px;
+
+font-size:18px;
+
+cursor:pointer;
+
 }
 
-body.alto-contraste .btn-acessibilidade {
-    background-color: #000000 !important;
-    color: #ffff00 !important;
-    border-color: #ffff00 !important;
+.altoContraste{
+
+background:black;
+
+color:white;
+
+}
+
+.altoContraste header{
+
+background:black;
+
+}
+
+.altoContraste nav a{
+
+color:yellow;
+
+}
+
+.disco{
+
+width:250px;
+
+height:250px;
+
+border-radius:50%;
+
+margin:auto;
+
+background:conic-gradient(
+
+red,
+
+orange,
+
+yellow,
+
+green,
+
+cyan,
+
+blue,
+
+violet,
+
+red
+
+);
+
+border:6px solid black;
+
+}
+
+.girar{
+
+animation:girar 2s linear infinite;
+
+}
+
+@keyframes girar{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+.cards{
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+flex-wrap:wrap;
+
+}
+
+.card{
+
+width:220px;
+
+height:160px;
+
+position:relative;
+
+cursor:pointer;
+
+transform-style:preserve-3d;
+
+transition:1s;
+
+}
+
+.card:hover{
+
+transform:rotateY(180deg);
+
+}
+
+.frente,.verso{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:15px;
+
+border-radius:15px;
+
+backface-visibility:hidden;
+
+font-size:18px;
+
+}
+
+.frente{
+
+background:#4fc3f7;
+
+}
+
+.verso{
+
+background:#81c784;
+
+transform:rotateY(180deg);
+
 }
