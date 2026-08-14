@@ -1,32 +1,35 @@
-// ========================================
-// MENU HAMBÚRGUER
-// ========================================
+/* =====================================================
+   MENU HAMBÚRGUER
+===================================================== */
 
-const botaoMenu = document.getElementById("botaoMenu");
-const menu = document.getElementById("menu");
+const menuButton =
+    document.getElementById("menuButton");
 
-
-botaoMenu.addEventListener("click", function () {
-
-    const menuAberto =
-        menu.classList.toggle("aberto");
+const mobileMenu =
+    document.getElementById("mobileMenu");
 
 
-    botaoMenu.classList.toggle(
-        "ativo",
-        menuAberto
+menuButton.addEventListener("click", () => {
+
+    const isOpen =
+        mobileMenu.classList.toggle("open");
+
+
+    menuButton.classList.toggle(
+        "active",
+        isOpen
     );
 
 
-    botaoMenu.setAttribute(
+    menuButton.setAttribute(
         "aria-expanded",
-        menuAberto
+        isOpen
     );
 
 
-    botaoMenu.setAttribute(
+    menuButton.setAttribute(
         "aria-label",
-        menuAberto
+        isOpen
             ? "Fechar menu"
             : "Abrir menu"
     );
@@ -34,242 +37,645 @@ botaoMenu.addEventListener("click", function () {
 });
 
 
-// Fechar menu ao clicar em um link
+document
+    .querySelectorAll(".mobile-menu a")
+    .forEach(link => {
 
-const linksMenu =
-    document.querySelectorAll(".menu a");
+        link.addEventListener("click", () => {
 
+            mobileMenu.classList.remove("open");
 
-linksMenu.forEach(function (link) {
+            menuButton.classList.remove("active");
 
-    link.addEventListener("click", function () {
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
-        menu.classList.remove("aberto");
-
-        botaoMenu.classList.remove("ativo");
-
-        botaoMenu.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        botaoMenu.setAttribute(
-            "aria-label",
-            "Abrir menu"
-        );
+        });
 
     });
+
+
+
+/* =====================================================
+   DISCO DE NEWTON
+===================================================== */
+
+const newtonDisk =
+    document.getElementById("newtonDisk");
+
+const startDisk =
+    document.getElementById("startDisk");
+
+const stopDisk =
+    document.getElementById("stopDisk");
+
+const diskSpeed =
+    document.getElementById("diskSpeed");
+
+const speedValue =
+    document.getElementById("speedValue");
+
+const diskStatus =
+    document.getElementById("diskStatus");
+
+const statusDot =
+    document.querySelector(".status-dot");
+
+
+let rotating =
+    false;
+
+let rotation =
+    0;
+
+let lastTime =
+    0;
+
+
+/*
+    Velocidade inicial
+*/
+
+let speed =
+    Number(diskSpeed.value);
+
+
+/*
+    Atualiza o texto
+*/
+
+function updateSpeed() {
+
+    speed =
+        Number(diskSpeed.value);
+
+    speedValue.textContent =
+        speed;
+
+}
+
+
+diskSpeed.addEventListener(
+    "input",
+    updateSpeed
+);
+
+
+updateSpeed();
+
+
+/*
+    Animação do disco
+*/
+
+function animateDisk(time) {
+
+    if (!lastTime) {
+
+        lastTime =
+            time;
+
+    }
+
+
+    const delta =
+        time - lastTime;
+
+
+    lastTime =
+        time;
+
+
+    if (rotating) {
+
+        rotation +=
+            speed * delta * 0.15;
+
+
+        newtonDisk.style.transform =
+            `rotate(${rotation}deg)`;
+
+    }
+
+
+    requestAnimationFrame(
+        animateDisk
+    );
+
+}
+
+
+requestAnimationFrame(
+    animateDisk
+);
+
+
+/*
+    Iniciar
+*/
+
+startDisk.addEventListener(
+    "click",
+    () => {
+
+        rotating =
+            true;
+
+        diskStatus.textContent =
+            "Disco girando";
+
+        statusDot.classList.add(
+            "running"
+        );
+
+    }
+);
+
+
+/*
+    Parar
+*/
+
+stopDisk.addEventListener(
+    "click",
+    () => {
+
+        rotating =
+            false;
+
+        diskStatus.textContent =
+            "Disco parado";
+
+        statusDot.classList.remove(
+            "running"
+        );
+
+    }
+);
+
+
+
+/* =====================================================
+   LED RGB
+===================================================== */
+
+const redSlider =
+    document.getElementById("redSlider");
+
+const greenSlider =
+    document.getElementById("greenSlider");
+
+const blueSlider =
+    document.getElementById("blueSlider");
+
+
+const redValue =
+    document.getElementById("redValue");
+
+const greenValue =
+    document.getElementById("greenValue");
+
+const blueValue =
+    document.getElementById("blueValue");
+
+
+const rgbLight =
+    document.getElementById("rgbLight");
+
+
+const ledBulb =
+    document.querySelector(".led-bulb");
+
+
+const rgbValue =
+    document.getElementById("rgbValue");
+
+
+const resetRGB =
+    document.getElementById("resetRGB");
+
+
+function updateRGB() {
+
+    const red =
+        Number(redSlider.value);
+
+    const green =
+        Number(greenSlider.value);
+
+    const blue =
+        Number(blueSlider.value);
+
+
+    const color =
+        `rgb(${red}, ${green}, ${blue})`;
+
+
+    redValue.textContent =
+        red;
+
+    greenValue.textContent =
+        green;
+
+    blueValue.textContent =
+        blue;
+
+
+    rgbLight.style.background =
+        color;
+
+
+    ledBulb.style.background =
+        color;
+
+
+    ledBulb.style.boxShadow =
+        `0 0 35px ${color},
+         inset 0 -20px 35px rgba(0,0,0,.15)`;
+
+
+    rgbValue.textContent =
+        `RGB(${red}, ${green}, ${blue})`;
+
+}
+
+
+redSlider.addEventListener(
+    "input",
+    updateRGB
+);
+
+
+greenSlider.addEventListener(
+    "input",
+    updateRGB
+);
+
+
+blueSlider.addEventListener(
+    "input",
+    updateRGB
+);
+
+
+resetRGB.addEventListener(
+    "click",
+    () => {
+
+        redSlider.value =
+            255;
+
+        greenSlider.value =
+            80;
+
+        blueSlider.value =
+            80;
+
+
+        updateRGB();
+
+    }
+);
+
+
+updateRGB();
+
+
+
+/* =====================================================
+   FADE IN / FADE OUT
+===================================================== */
+
+const fadeLight =
+    document.getElementById("fadeLight");
+
+const startFade =
+    document.getElementById("startFade");
+
+const stopFade =
+    document.getElementById("stopFade");
+
+
+let fadeAnimation = null;
+
+let fadeValue =
+    0.1;
+
+let fadeDirection =
+    1;
+
+
+function animateFade() {
+
+    fadeValue +=
+        0.008 * fadeDirection;
+
+
+    if (fadeValue >= 1) {
+
+        fadeValue =
+            1;
+
+        fadeDirection =
+            -1;
+
+    }
+
+
+    if (fadeValue <= 0.08) {
+
+        fadeValue =
+            0.08;
+
+        fadeDirection =
+            1;
+
+    }
+
+
+    fadeLight.style.opacity =
+        fadeValue;
+
+
+    fadeAnimation =
+        requestAnimationFrame(
+            animateFade
+        );
+
+}
+
+
+startFade.addEventListener(
+    "click",
+    () => {
+
+        if (!fadeAnimation) {
+
+            fadeAnimation =
+                requestAnimationFrame(
+                    animateFade
+                );
+
+        }
+
+    }
+);
+
+
+stopFade.addEventListener(
+    "click",
+    () => {
+
+        if (fadeAnimation) {
+
+            cancelAnimationFrame(
+                fadeAnimation
+            );
+
+            fadeAnimation =
+                null;
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   FLASHCARDS
+===================================================== */
+
+const flashcards =
+    document.querySelectorAll(
+        ".flashcard"
+    );
+
+
+flashcards.forEach(card => {
+
+
+    function flipCard() {
+
+        card.classList.toggle(
+            "flipped"
+        );
+
+    }
+
+
+    card.addEventListener(
+        "click",
+        flipCard
+    );
+
+
+    card.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
+
+                event.preventDefault();
+
+                flipCard();
+
+            }
+
+        }
+    );
 
 });
 
 
-// ========================================
-// AUMENTAR E DIMINUIR FONTE
-// ========================================
 
-const aumentarFonte =
-    document.getElementById("aumentarFonte");
+/* =====================================================
+   ACESSIBILIDADE — FONTE
+===================================================== */
 
-const diminuirFonte =
-    document.getElementById("diminuirFonte");
+const fontMinus =
+    document.getElementById("fontMinus");
 
-const fonteNormal =
-    document.getElementById("fonteNormal");
+const fontPlus =
+    document.getElementById("fontPlus");
 
-const porcentagemFonte =
-    document.getElementById("porcentagemFonte");
+const fontReset =
+    document.getElementById("fontReset");
 
-
-let tamanhoFonte = 1;
+const fontPercent =
+    document.getElementById("fontPercent");
 
 
-// Atualizar tamanho
-
-function atualizarFonte() {
-
-    // Limites
-
-    if (tamanhoFonte > 1.4) {
-
-        tamanhoFonte = 1.4;
-
-    }
+let fontScale =
+    Number(
+        localStorage.getItem(
+            "fontScale"
+        )
+    ) || 1;
 
 
-    if (tamanhoFonte < 0.8) {
+function updateFont() {
 
-        tamanhoFonte = 0.8;
-
-    }
+    fontScale =
+        Math.min(
+            1.4,
+            Math.max(
+                .85,
+                fontScale
+            )
+        );
 
 
     document.documentElement.style.setProperty(
-        "--tamanho-fonte",
-        tamanhoFonte
+        "--font-scale",
+        fontScale
     );
 
 
-    porcentagemFonte.textContent =
-        Math.round(tamanhoFonte * 100) + "%";
+    fontPercent.textContent =
+        `${Math.round(fontScale * 100)}%`;
 
-
-    // Salvar preferência
 
     localStorage.setItem(
-        "tamanhoFonte",
-        tamanhoFonte
+        "fontScale",
+        fontScale
     );
 
 }
 
 
-// Aumentar
-
-aumentarFonte.addEventListener(
+fontMinus.addEventListener(
     "click",
-    function () {
+    () => {
 
-        tamanhoFonte += 0.1;
+        fontScale -=
+            .1;
 
-        atualizarFonte();
+        updateFont();
 
     }
 );
 
 
-// Diminuir
-
-diminuirFonte.addEventListener(
+fontPlus.addEventListener(
     "click",
-    function () {
+    () => {
 
-        tamanhoFonte -= 0.1;
+        fontScale +=
+            .1;
 
-        atualizarFonte();
+        updateFont();
 
     }
 );
 
 
-// Voltar ao normal
-
-fonteNormal.addEventListener(
+fontReset.addEventListener(
     "click",
-    function () {
+    () => {
 
-        tamanhoFonte = 1;
+        fontScale =
+            1;
 
-        atualizarFonte();
+        updateFont();
 
     }
 );
 
 
-// Carregar configuração salva
-
-const fonteSalva =
-    localStorage.getItem("tamanhoFonte");
+updateFont();
 
 
-if (fonteSalva !== null) {
 
-    tamanhoFonte =
-        Number(fonteSalva);
+/* =====================================================
+   ACESSIBILIDADE — ALTO CONTRASTE
+===================================================== */
 
-    atualizarFonte();
-
-}
-
-
-// ========================================
-// ALTO CONTRASTE
-// ========================================
-
-const altoContraste =
-    document.getElementById("altoContraste");
+const contrastButton =
+    document.getElementById(
+        "contrastButton"
+    );
 
 
-function atualizarContraste(ativado) {
+let highContrast =
+    localStorage.getItem(
+        "highContrast"
+    ) === "true";
+
+
+function updateContrast() {
 
     document.body.classList.toggle(
-        "alto-contraste",
-        ativado
+        "high-contrast",
+        highContrast
     );
 
 
-    altoContraste.setAttribute(
-        "aria-pressed",
-        ativado
-    );
-
-
-    altoContraste.textContent =
-        ativado
+    contrastButton.textContent =
+        highContrast
             ? "Desativar"
             : "Ativar";
 
 
+    contrastButton.classList.toggle(
+        "active",
+        highContrast
+    );
+
+
+    contrastButton.setAttribute(
+        "aria-pressed",
+        highContrast
+    );
+
+
     localStorage.setItem(
-        "altoContraste",
-        ativado
+        "highContrast",
+        highContrast
     );
 
 }
 
 
-// Verificar configuração salva
-
-const contrasteSalvo =
-    localStorage.getItem(
-        "altoContraste"
-    ) === "true";
-
-
-atualizarContraste(
-    contrasteSalvo
-);
-
-
-// Botão de contraste
-
-altoContraste.addEventListener(
+contrastButton.addEventListener(
     "click",
-    function () {
+    () => {
 
-        const ativado =
-            !document.body.classList.contains(
-                "alto-contraste"
-            );
+        highContrast =
+            !highContrast;
 
-        atualizarContraste(
-            ativado
-        );
+        updateContrast();
 
     }
 );
 
 
-// ========================================
-// LEITURA EM VOZ ALTA
-// ========================================
+updateContrast();
 
-const botaoLeitura =
+
+
+/* =====================================================
+   LEITURA EM VOZ ALTA
+===================================================== */
+
+const readHero =
     document.getElementById(
-        "botaoLeitura"
+        "readHero"
     );
 
 
-const pararLeitura =
+const stopSpeech =
     document.getElementById(
-        "pararLeitura"
+        "stopSpeech"
     );
 
 
-// Função para ler
-
-function lerIntroducao() {
-
-    // Verificar suporte
+function speakIntroduction() {
 
     if (
         !("speechSynthesis" in window)
@@ -284,76 +690,115 @@ function lerIntroducao() {
     }
 
 
-    // Parar leitura anterior
-
-    window.speechSynthesis.cancel();
+    speechSynthesis.cancel();
 
 
-    const texto = `
+    const text = `
+
         Bem-vindo ao NewtonLab.
 
-        Este é um projeto educativo sobre
-        o Disco de Newton, LED RGB,
+        Este é um projeto educativo
+        sobre o Disco de Newton,
+        o LED RGB e os efeitos
         Fade In e Fade Out.
 
-        O objetivo deste projeto é ensinar
-        conceitos de Física e Eletrônica
-        de maneira visual e interativa.
+        No Disco de Newton,
+        você pode experimentar a rotação
+        de um disco dividido em sete cores.
 
-        Nas próximas etapas,
-        teremos um Disco de Newton giratório,
-        uma simulação de LED RGB,
-        o efeito Fade In e Fade Out
-        e flashcards educativos.
+        No experimento do LED RGB,
+        você pode misturar vermelho,
+        verde e azul.
+
+        Nos flashcards,
+        você pode revisar os conceitos
+        estudados.
+
+        O site também possui recursos
+        de acessibilidade,
+        como aumento de fonte,
+        alto contraste
+        e leitura em voz alta.
+
     `;
 
 
-    const mensagem =
+    const speech =
         new SpeechSynthesisUtterance(
-            texto
+            text
         );
 
 
-    mensagem.lang =
+    speech.lang =
         "pt-BR";
 
+    speech.rate =
+        .9;
 
-    mensagem.rate =
-        0.9;
-
-
-    mensagem.pitch =
+    speech.pitch =
         1;
 
 
-    window.speechSynthesis.speak(
-        mensagem
+    speechSynthesis.speak(
+        speech
     );
 
 }
 
 
-// Botão ouvir
-
-botaoLeitura.addEventListener(
+readHero.addEventListener(
     "click",
-    lerIntroducao
+    speakIntroduction
 );
 
 
-// Botão parar
-
-pararLeitura.addEventListener(
+stopSpeech.addEventListener(
     "click",
-    function () {
+    () => {
 
         if (
-            "speechSynthesis" in window
+            "speechSynthesis"
+            in window
         ) {
 
-            window.speechSynthesis.cancel();
+            speechSynthesis.cancel();
 
         }
 
     }
 );
+
+
+
+/* =====================================================
+   ROLAGEM SUAVE PARA NAVEGAÇÃO
+===================================================== */
+
+document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            event => {
+
+                const target =
+                    document.querySelector(
+                        link.getAttribute("href")
+                    );
+
+
+                if (target) {
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+                }
+
+            }
+        );
+
+    });

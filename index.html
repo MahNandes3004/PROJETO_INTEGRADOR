@@ -1,98 +1,729 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
-        content="Site educativo sobre o Disco de Newton, LED RGB e efeito Fade In e Fade Out."
+        content="Projeto educativo e interativo sobre o Disco de Newton, LED RGB e Fade In e Fade Out."
     >
 
-    <title>NewtonLab | Disco de Newton</title>
+    <title>NewtonLab | Ciência Interativa</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- Link para acessibilidade -->
-    <a href="#conteudo" class="pular-conteudo">
+    <!-- BOTÃO PARA PULAR CONTEÚDO -->
+    <a
+        href="#conteudo"
+        class="skip-link"
+    >
         Pular para o conteúdo
     </a>
 
-    <!-- CABEÇALHO -->
-    <header class="cabecalho">
 
-        <div class="logo">
-            <div class="mini-disco"></div>
-            <span>Newton<span class="logo-roxo">Lab</span></span>
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+
+    <header class="header">
+
+        <div class="header-container">
+
+            <a
+                href="#inicio"
+                class="logo"
+            >
+
+                <div class="logo-icon">
+                    <div class="logo-inner"></div>
+                </div>
+
+                <div class="logo-text">
+                    <strong>Newton</strong><span>Lab</span>
+                </div>
+
+            </a>
+
+
+            <!-- MENU DESKTOP -->
+
+            <nav
+                class="desktop-nav"
+                aria-label="Menu principal"
+            >
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="#disco">
+                    Disco de Newton
+                </a>
+
+                <a href="#led">
+                    LED RGB
+                </a>
+
+                <a href="#flashcards">
+                    Flashcards
+                </a>
+
+                <a href="#acessibilidade">
+                    Acessibilidade
+                </a>
+
+            </nav>
+
+
+            <!-- BOTÃO MENU -->
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
         </div>
 
-        <!-- BOTÃO HAMBÚRGUER -->
-        <button
-            class="botao-menu"
-            id="botaoMenu"
-            aria-label="Abrir menu"
-            aria-expanded="false"
+
+        <!-- MENU MOBILE -->
+
+        <nav
+            class="mobile-menu"
+            id="mobileMenu"
+            aria-label="Menu mobile"
         >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
 
-        <!-- MENU -->
-        <nav class="menu" id="menu">
+            <a href="#inicio">
+                Início
+            </a>
 
-            <a href="#inicio">Início</a>
+            <a href="#disco">
+                Disco de Newton
+            </a>
 
-            <a href="#sobre">O Projeto</a>
+            <a href="#led">
+                LED RGB
+            </a>
 
-            <a href="#conceitos">Conceitos</a>
+            <a href="#flashcards">
+                Flashcards
+            </a>
 
-            <a href="#acessibilidade">Acessibilidade</a>
+            <a href="#acessibilidade">
+                Acessibilidade
+            </a>
 
         </nav>
 
     </header>
 
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main id="conteudo">
 
-        <!-- PRIMEIRA PÁGINA -->
-        <section class="inicio" id="inicio">
 
-            <div class="texto-inicio">
+        <!-- =========================
+             HERO
+        ========================== -->
 
-                <p class="etiqueta">
-                    PROJETO EDUCATIVO
-                </p>
+        <section
+            class="hero"
+            id="inicio"
+        >
 
-                <h1>
-                    Descobrindo o
-                    <span>Disco de Newton</span>
-                </h1>
+            <div class="hero-background">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+            </div>
 
-                <p class="descricao">
-                    Um projeto interativo para aprender sobre o Disco de
-                    Newton, LED RGB e os efeitos Fade In e Fade Out.
-                </p>
 
-                <div class="botoes">
+            <div class="hero-container">
 
-                    <a
-                        href="#sobre"
-                        class="botao principal"
+                <div class="hero-content">
+
+                    <div class="badge">
+                        ✦ PROJETO EDUCATIVO INTERATIVO
+                    </div>
+
+
+                    <h1>
+
+                        A ciência das
+                        <span>cores e da luz.</span>
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        Descubra como o Disco de Newton,
+                        o LED RGB e os efeitos de iluminação
+                        transformam conceitos científicos
+                        em experiências visuais.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#disco"
+                            class="button button-primary"
+                        >
+                            Explorar o projeto
+                            <span>→</span>
+                        </a>
+
+
+                        <button
+                            class="button button-secondary"
+                            id="readHero"
+                        >
+                            🔊 Ouvir introdução
+                        </button>
+
+                    </div>
+
+
+                    <div class="hero-info">
+
+                        <div>
+                            <strong>01</strong>
+                            <span>Disco de Newton</span>
+                        </div>
+
+                        <div>
+                            <strong>02</strong>
+                            <span>LED RGB</span>
+                        </div>
+
+                        <div>
+                            <strong>03</strong>
+                            <span>Flashcards</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DISCO VISUAL DO HERO -->
+
+                <div class="hero-disk-area">
+
+                    <div class="glow"></div>
+
+                    <div
+                        class="disk disk-hero"
+                        aria-hidden="true"
                     >
-                        Começar a explorar
-                    </a>
+
+                        <div class="disk-center"></div>
+
+                    </div>
+
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SOBRE
+        ========================== -->
+
+        <section
+            class="section about-section"
+            id="sobre"
+        >
+
+            <div class="section-header">
+
+                <span class="section-number">
+                    01
+                </span>
+
+                <div>
+
+                    <span class="eyebrow">
+                        SOBRE O PROJETO
+                    </span>
+
+                    <h2>
+                        Aprender também pode ser interativo.
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="about-text">
+
+                    <p class="large-text">
+
+                        Este site foi criado para apresentar
+                        conceitos de Física e Eletrônica de
+                        uma forma visual, simples e acessível.
+
+                    </p>
+
+
+                    <p>
+
+                        Ao longo do projeto você poderá experimentar
+                        virtualmente diferentes fenômenos relacionados
+                        às cores, à luz e aos LEDs.
+
+                    </p>
+
+
+                    <p>
+
+                        A proposta é aproximar a teoria da prática,
+                        permitindo que o visitante não apenas leia,
+                        mas também interaja com os conceitos.
+
+                    </p>
+
+                </div>
+
+
+                <div class="about-cards">
+
+                    <article class="mini-card">
+
+                        <span class="mini-icon purple">
+                            ◉
+                        </span>
+
+                        <h3>
+                            Física
+                        </h3>
+
+                        <p>
+                            Cores, luz e percepção visual.
+                        </p>
+
+                    </article>
+
+
+                    <article class="mini-card">
+
+                        <span class="mini-icon blue">
+                            ◉
+                        </span>
+
+                        <h3>
+                            Eletrônica
+                        </h3>
+
+                        <p>
+                            LEDs, RGB, PWM e iluminação.
+                        </p>
+
+                    </article>
+
+
+                    <article class="mini-card">
+
+                        <span class="mini-icon yellow">
+                            ◉
+                        </span>
+
+                        <h3>
+                            Interação
+                        </h3>
+
+                        <p>
+                            Experimentos e atividades.
+                        </p>
+
+                    </article>
+
+
+                    <article class="mini-card">
+
+                        <span class="mini-icon green">
+                            ◉
+                        </span>
+
+                        <h3>
+                            Inclusão
+                        </h3>
+
+                        <p>
+                            Recursos de acessibilidade.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             DISCO DE NEWTON
+        ========================== -->
+
+        <section
+            class="section disk-section"
+            id="disco"
+        >
+
+            <div class="section-label centered">
+                EXPERIMENTO INTERATIVO
+            </div>
+
+
+            <h2 class="section-title centered">
+                Disco de Newton
+            </h2>
+
+
+            <p class="section-subtitle centered">
+
+                Faça o disco girar e observe como as cores
+                são percebidas quando o movimento aumenta.
+
+            </p>
+
+
+            <div class="experiment-box">
+
+                <div class="disk-side">
+
+                    <div
+                        class="disk large-disk"
+                        id="newtonDisk"
+                        role="img"
+                        aria-label="Disco de Newton com sete cores"
+                    >
+
+                        <div class="disk-center">
+
+                            <span></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="experiment-info">
+
+                    <span class="experiment-tag">
+                        EXPERIMENTO 01
+                    </span>
+
+
+                    <h3>
+                        Observe o movimento
+                    </h3>
+
+
+                    <p>
+
+                        O Disco de Newton possui diferentes
+                        cores distribuídas ao redor do disco.
+                        Ao girá-lo rapidamente, nosso sistema
+                        visual integra essas cores.
+
+                    </p>
+
+
+                    <div class="disk-status">
+
+                        <div class="status-dot"></div>
+
+                        <span id="diskStatus">
+                            Disco parado
+                        </span>
+
+                    </div>
+
+
+                    <div class="controls">
+
+                        <button
+                            class="control-button primary-control"
+                            id="startDisk"
+                        >
+                            ▶ Iniciar
+                        </button>
+
+
+                        <button
+                            class="control-button"
+                            id="stopDisk"
+                        >
+                            ■ Parar
+                        </button>
+
+                    </div>
+
+
+                    <div class="speed-control">
+
+                        <div class="speed-header">
+
+                            <span>
+                                Velocidade
+                            </span>
+
+                            <strong id="speedValue">
+                                5
+                            </strong>
+
+                        </div>
+
+
+                        <input
+                            type="range"
+                            id="diskSpeed"
+                            min="1"
+                            max="10"
+                            value="5"
+                        >
+
+                        <div class="range-labels">
+
+                            <span>
+                                Lenta
+                            </span>
+
+                            <span>
+                                Rápida
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="science-note">
+
+                <span>💡</span>
+
+                <div>
+
+                    <strong>
+                        Você sabia?
+                    </strong>
+
+                    <p>
+
+                        Isaac Newton utilizou um prisma para estudar
+                        a decomposição da luz branca nas cores do espectro.
+                        O Disco de Newton funciona como uma demonstração
+                        visual da recombinação dessas cores.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             LED RGB
+        ========================== -->
+
+        <section
+            class="section led-section"
+            id="led"
+        >
+
+            <div class="section-label centered">
+                ELETRÔNICA INTERATIVA
+            </div>
+
+
+            <h2 class="section-title centered">
+                Experimente o LED RGB
+            </h2>
+
+
+            <p class="section-subtitle centered">
+
+                Misture vermelho, verde e azul para criar
+                diferentes cores.
+
+            </p>
+
+
+            <div class="led-experiment">
+
+                <div class="led-visual">
+
+                    <div
+                        class="rgb-light"
+                        id="rgbLight"
+                    ></div>
+
+                    <div class="led-real">
+
+                        <div class="led-bulb"></div>
+
+                        <div class="led-base"></div>
+
+                    </div>
+
+                    <div
+                        class="rgb-value"
+                        id="rgbValue"
+                    >
+                        RGB(255, 80, 80)
+                    </div>
+
+                </div>
+
+
+                <div class="rgb-controls">
+
+                    <div class="rgb-heading">
+
+                        <span class="experiment-tag">
+                            EXPERIMENTO 02
+                        </span>
+
+                        <h3>
+                            Misture as cores
+                        </h3>
+
+                    </div>
+
+
+                    <!-- RED -->
+
+                    <div class="slider-group">
+
+                        <div class="slider-title">
+
+                            <span class="red-text">
+                                Vermelho
+                            </span>
+
+                            <strong id="redValue">
+                                255
+                            </strong>
+
+                        </div>
+
+                        <input
+                            type="range"
+                            id="redSlider"
+                            min="0"
+                            max="255"
+                            value="255"
+                            class="red-slider"
+                        >
+
+                    </div>
+
+
+                    <!-- GREEN -->
+
+                    <div class="slider-group">
+
+                        <div class="slider-title">
+
+                            <span class="green-text">
+                                Verde
+                            </span>
+
+                            <strong id="greenValue">
+                                80
+                            </strong>
+
+                        </div>
+
+                        <input
+                            type="range"
+                            id="greenSlider"
+                            min="0"
+                            max="255"
+                            value="80"
+                            class="green-slider"
+                        >
+
+                    </div>
+
+
+                    <!-- BLUE -->
+
+                    <div class="slider-group">
+
+                        <div class="slider-title">
+
+                            <span class="blue-text">
+                                Azul
+                            </span>
+
+                            <strong id="blueValue">
+                                80
+                            </strong>
+
+                        </div>
+
+                        <input
+                            type="range"
+                            id="blueSlider"
+                            min="0"
+                            max="255"
+                            value="80"
+                            class="blue-slider"
+                        >
+
+                    </div>
+
 
                     <button
-                        id="botaoLeitura"
-                        class="botao secundario"
+                        class="reset-rgb"
+                        id="resetRGB"
                     >
-                        🔊 Ouvir introdução
+                        Restaurar cor
                     </button>
 
                 </div>
@@ -100,201 +731,433 @@
             </div>
 
 
-            <!-- DISCO -->
-            <div class="area-disco">
 
-                <div
-                    class="disco-newton"
-                    aria-label="Ilustração do Disco de Newton"
-                ></div>
+            <!-- FADE -->
 
-            </div>
-
-        </section>
-
-
-        <!-- SOBRE -->
-        <section class="secao" id="sobre">
-
-            <div class="titulo">
-
-                <p class="etiqueta">
-                    INTRODUÇÃO
-                </p>
-
-                <h2>
-                    O que você vai aprender?
-                </h2>
-
-                <p>
-                    Este site apresenta conceitos de Física e Eletrônica
-                    de maneira visual, simples e interativa.
-                </p>
-
-            </div>
-
-
-            <div class="cards">
-
-                <!-- CARD 1 -->
-                <article class="card">
-
-                    <div class="icone">
-                        🌈
-                    </div>
-
-                    <h3>
-                        Disco de Newton
-                    </h3>
-
-                    <p>
-                        Aprenda como as cores presentes no Disco de Newton
-                        podem produzir a sensação da cor branca quando o
-                        disco gira rapidamente.
-                    </p>
-
-                </article>
-
-
-                <!-- CARD 2 -->
-                <article class="card">
-
-                    <div class="icone">
-                        💡
-                    </div>
-
-                    <h3>
-                        LED RGB
-                    </h3>
-
-                    <p>
-                        Entenda como as cores vermelho, verde e azul podem
-                        ser combinadas para criar diferentes cores.
-                    </p>
-
-                </article>
-
-
-                <!-- CARD 3 -->
-                <article class="card">
-
-                    <div class="icone">
-                        ✨
-                    </div>
-
-                    <h3>
-                        Fade In / Fade Out
-                    </h3>
-
-                    <p>
-                        Descubra como o brilho de um LED pode aumentar e
-                        diminuir gradualmente.
-                    </p>
-
-                </article>
-
-            </div>
-
-
-            <div class="caixa">
+            <div class="fade-card">
 
                 <div>
 
-                    <p class="etiqueta">
-                        OBJETIVO
-                    </p>
-
-                    <h2>
-                        Aprender de forma interativa
-                    </h2>
-
-                </div>
-
-                <p>
-                    O objetivo deste projeto é transformar conteúdos de
-                    Física e Eletrônica em uma experiência educativa,
-                    interativa e acessível.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- CONCEITOS -->
-        <section class="secao" id="conceitos">
-
-            <div class="titulo">
-
-                <p class="etiqueta">
-                    PRÓXIMAS ETAPAS
-                </p>
-
-                <h2>
-                    O que terá no site?
-                </h2>
-
-            </div>
-
-
-            <div class="cards-recursos">
-
-                <article class="recurso">
-
-                    <span>01</span>
-
-                    <h3>
-                        Disco giratório
-                    </h3>
-
-                    <p>
-                        Um Disco de Newton que realmente gira na tela.
-                    </p>
-
-                </article>
-
-
-                <article class="recurso">
-
-                    <span>02</span>
-
-                    <h3>
-                        LED RGB
-                    </h3>
-
-                    <p>
-                        Controles para alterar as cores do LED.
-                    </p>
-
-                </article>
-
-
-                <article class="recurso">
-
-                    <span>03</span>
+                    <span class="experiment-tag">
+                        EXPERIMENTO 03
+                    </span>
 
                     <h3>
                         Fade In / Fade Out
                     </h3>
 
                     <p>
-                        Simulação do brilho aumentando e diminuindo.
+
+                        O brilho do LED aumenta e diminui
+                        suavemente, simulando o efeito
+                        Fade In e Fade Out.
+
                     </p>
+
+                </div>
+
+
+                <div class="fade-demo">
+
+                    <div
+                        class="fade-light"
+                        id="fadeLight"
+                    ></div>
+
+                </div>
+
+
+                <div class="fade-controls">
+
+                    <button
+                        class="control-button primary-control"
+                        id="startFade"
+                    >
+                        ▶ Iniciar efeito
+                    </button>
+
+                    <button
+                        class="control-button"
+                        id="stopFade"
+                    >
+                        ■ Parar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             FLASHCARDS
+        ========================== -->
+
+        <section
+            class="section flashcard-section"
+            id="flashcards"
+        >
+
+            <div class="section-label centered">
+                REVISÃO
+            </div>
+
+
+            <h2 class="section-title centered">
+                Flashcards
+            </h2>
+
+
+            <p class="section-subtitle centered">
+
+                Clique nos cartões para descobrir a resposta.
+
+            </p>
+
+
+            <div class="flashcard-grid">
+
+
+                <!-- CARD 1 -->
+
+                <article
+                    class="flashcard"
+                    tabindex="0"
+                >
+
+                    <div class="flashcard-inner">
+
+                        <div class="flashcard-front">
+
+                            <span class="card-number">
+                                01
+                            </span>
+
+                            <div class="card-icon">
+                                🌈
+                            </div>
+
+                            <h3>
+                                O que é o Disco de Newton?
+                            </h3>
+
+                            <span class="flip-hint">
+                                Clique para virar →
+                            </span>
+
+                        </div>
+
+
+                        <div class="flashcard-back">
+
+                            <span class="card-number">
+                                01
+                            </span>
+
+                            <h3>
+                                Resposta
+                            </h3>
+
+                            <p>
+
+                                É um disco dividido em várias
+                                cores do espectro visível que,
+                                ao girar rapidamente, produz
+                                a sensação de uma cor clara,
+                                próxima do branco.
+
+                            </p>
+
+                        </div>
+
+                    </div>
 
                 </article>
 
 
-                <article class="recurso">
 
-                    <span>04</span>
+                <!-- CARD 2 -->
 
-                    <h3>
-                        Flashcards
-                    </h3>
+                <article
+                    class="flashcard"
+                    tabindex="0"
+                >
 
-                    <p>
-                        Cartões para revisar os conteúdos estudados.
-                    </p>
+                    <div class="flashcard-inner">
+
+                        <div class="flashcard-front">
+
+                            <span class="card-number">
+                                02
+                            </span>
+
+                            <div class="card-icon">
+                                💡
+                            </div>
+
+                            <h3>
+                                O que é um LED RGB?
+                            </h3>
+
+                            <span class="flip-hint">
+                                Clique para virar →
+                            </span>
+
+                        </div>
+
+
+                        <div class="flashcard-back">
+
+                            <span class="card-number">
+                                02
+                            </span>
+
+                            <h3>
+                                Resposta
+                            </h3>
+
+                            <p>
+
+                                É um LED que possui três componentes
+                                principais: vermelho, verde e azul.
+                                A combinação dessas três cores permite
+                                produzir várias outras cores.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CARD 3 -->
+
+                <article
+                    class="flashcard"
+                    tabindex="0"
+                >
+
+                    <div class="flashcard-inner">
+
+                        <div class="flashcard-front">
+
+                            <span class="card-number">
+                                03
+                            </span>
+
+                            <div class="card-icon">
+                                ✨
+                            </div>
+
+                            <h3>
+                                O que é Fade In?
+                            </h3>
+
+                            <span class="flip-hint">
+                                Clique para virar →
+                            </span>
+
+                        </div>
+
+
+                        <div class="flashcard-back">
+
+                            <span class="card-number">
+                                03
+                            </span>
+
+                            <h3>
+                                Resposta
+                            </h3>
+
+                            <p>
+
+                                É um efeito em que a intensidade
+                                luminosa aumenta gradualmente,
+                                fazendo o LED aparecer ou ficar
+                                progressivamente mais brilhante.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CARD 4 -->
+
+                <article
+                    class="flashcard"
+                    tabindex="0"
+                >
+
+                    <div class="flashcard-inner">
+
+                        <div class="flashcard-front">
+
+                            <span class="card-number">
+                                04
+                            </span>
+
+                            <div class="card-icon">
+                                🔬
+                            </div>
+
+                            <h3>
+                                O que é PWM?
+                            </h3>
+
+                            <span class="flip-hint">
+                                Clique para virar →
+                            </span>
+
+                        </div>
+
+
+                        <div class="flashcard-back">
+
+                            <span class="card-number">
+                                04
+                            </span>
+
+                            <h3>
+                                Resposta
+                            </h3>
+
+                            <p>
+
+                                PWM é uma técnica que controla a
+                                quantidade média de energia entregue
+                                a um dispositivo, sendo muito utilizada
+                                para controlar o brilho de LEDs.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CARD 5 -->
+
+                <article
+                    class="flashcard"
+                    tabindex="0"
+                >
+
+                    <div class="flashcard-inner">
+
+                        <div class="flashcard-front">
+
+                            <span class="card-number">
+                                05
+                            </span>
+
+                            <div class="card-icon">
+                                🎨
+                            </div>
+
+                            <h3>
+                                Quais são as cores do RGB?
+                            </h3>
+
+                            <span class="flip-hint">
+                                Clique para virar →
+                            </span>
+
+                        </div>
+
+
+                        <div class="flashcard-back">
+
+                            <span class="card-number">
+                                05
+                            </span>
+
+                            <h3>
+                                Resposta
+                            </h3>
+
+                            <p>
+
+                                RGB significa Red (vermelho),
+                                Green (verde) e Blue (azul).
+                                Essas três cores formam a base
+                                da mistura aditiva de luz.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CARD 6 -->
+
+                <article
+                    class="flashcard"
+                    tabindex="0"
+                >
+
+                    <div class="flashcard-inner">
+
+                        <div class="flashcard-front">
+
+                            <span class="card-number">
+                                06
+                            </span>
+
+                            <div class="card-icon">
+                                ⚡
+                            </div>
+
+                            <h3>
+                                O que é Fade Out?
+                            </h3>
+
+                            <span class="flip-hint">
+                                Clique para virar →
+                            </span>
+
+                        </div>
+
+
+                        <div class="flashcard-back">
+
+                            <span class="card-number">
+                                06
+                            </span>
+
+                            <h3>
+                                Resposta
+                            </h3>
+
+                            <p>
+
+                                É o processo inverso do Fade In:
+                                a intensidade da luz diminui
+                                gradualmente até o LED ficar
+                                muito fraco ou apagado.
+
+                            </p>
+
+                        </div>
+
+                    </div>
 
                 </article>
 
@@ -303,65 +1166,80 @@
         </section>
 
 
-        <!-- ACESSIBILIDADE -->
+
+        <!-- =========================
+             ACESSIBILIDADE
+        ========================== -->
+
         <section
-            class="secao"
+            class="section accessibility-section"
             id="acessibilidade"
         >
 
-            <div class="titulo">
+            <div class="section-label">
+                INCLUSÃO
+            </div>
 
-                <p class="etiqueta">
-                    ACESSIBILIDADE
-                </p>
 
-                <h2>
-                    Recursos de acessibilidade
-                </h2>
+            <div class="accessibility-header">
 
-                <p>
-                    Estas ferramentas ajudam a tornar o site mais acessível
-                    para pessoas com baixa visão.
-                </p>
+                <div>
+
+                    <h2>
+                        O conhecimento deve ser acessível.
+                    </h2>
+
+                    <p>
+
+                        Este site possui recursos para ajudar
+                        pessoas com baixa visão e facilitar
+                        a navegação.
+
+                    </p>
+
+                </div>
+
+                <div class="accessibility-symbol">
+                    ♿
+                </div>
 
             </div>
 
 
-            <div class="painel-acessibilidade">
+            <div class="accessibility-controls">
 
-                <!-- TAMANHO -->
-                <div class="controle">
+                <!-- FONTE -->
+
+                <div class="access-card">
+
+                    <div class="access-icon">
+                        A
+                    </div>
 
                     <div>
 
-                        <strong>
+                        <h3>
                             Tamanho da fonte
-                        </strong>
+                        </h3>
 
-                        <span id="porcentagemFonte">
+                        <span id="fontPercent">
                             100%
                         </span>
 
                     </div>
 
-                    <div class="botoes-fonte">
+                    <div class="font-buttons">
 
-                        <button
-                            id="diminuirFonte"
-                            aria-label="Diminuir fonte"
-                        >
-                            A-
+                        <button id="fontMinus">
+                            A−
                         </button>
 
-                        <button
-                            id="aumentarFonte"
-                            aria-label="Aumentar fonte"
-                        >
+                        <button id="fontReset">
+                            100%
+                        </button>
+
+                        <button id="fontPlus">
                             A+
-                        </button>
-
-                        <button id="fonteNormal">
-                            Normal
                         </button>
 
                     </div>
@@ -370,23 +1248,28 @@
 
 
                 <!-- CONTRASTE -->
-                <div class="controle">
+
+                <div class="access-card">
+
+                    <div class="access-icon">
+                        ◐
+                    </div>
 
                     <div>
 
-                        <strong>
+                        <h3>
                             Alto contraste
-                        </strong>
+                        </h3>
 
-                        <span>
-                            Aumenta a diferença entre fundo e texto.
-                        </span>
+                        <p>
+                            Aumente a diferença entre cores.
+                        </p>
 
                     </div>
 
                     <button
-                        id="altoContraste"
-                        class="botao-contraste"
+                        id="contrastButton"
+                        class="access-toggle"
                         aria-pressed="false"
                     >
                         Ativar
@@ -396,21 +1279,29 @@
 
 
                 <!-- LEITURA -->
-                <div class="controle">
+
+                <div class="access-card">
+
+                    <div class="access-icon">
+                        🔊
+                    </div>
 
                     <div>
 
-                        <strong>
+                        <h3>
                             Leitura em voz alta
-                        </strong>
+                        </h3>
 
-                        <span>
-                            Utiliza a voz disponível no navegador.
-                        </span>
+                        <p>
+                            Ouça o conteúdo da página.
+                        </p>
 
                     </div>
 
-                    <button id="pararLeitura">
+                    <button
+                        id="stopSpeech"
+                        class="access-toggle"
+                    >
                         Parar
                     </button>
 
@@ -423,16 +1314,41 @@
     </main>
 
 
-    <!-- RODAPÉ -->
-    <footer class="rodape">
 
-        <p>
-            Projeto educativo sobre o Disco de Newton, LED RGB e Fade In/Fade Out.
-        </p>
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
-        <p>
-            Desenvolvido para fins educacionais.
-        </p>
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-logo">
+
+                <div class="logo-icon">
+                    <div class="logo-inner"></div>
+                </div>
+
+                <div>
+                    <strong>NewtonLab</strong>
+
+                    <p>
+                        Ciência • Tecnologia • Educação
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <p class="footer-copy">
+
+                Projeto educativo sobre o Disco de Newton,
+                LED RGB e efeitos de iluminação.
+
+            </p>
+
+        </div>
 
     </footer>
 
@@ -440,4 +1356,5 @@
     <script src="js/script.js"></script>
 
 </body>
+
 </html>
