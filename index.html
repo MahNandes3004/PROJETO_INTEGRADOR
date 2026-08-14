@@ -1,159 +1,443 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Disco de Newton e LEDs</title>
+    <meta
+        name="description"
+        content="Site educativo sobre o Disco de Newton, LED RGB e efeito Fade In e Fade Out."
+    >
 
-<link rel="stylesheet" href="style.css">
+    <title>NewtonLab | Disco de Newton</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<header>
+    <!-- Link para acessibilidade -->
+    <a href="#conteudo" class="pular-conteudo">
+        Pular para o conteúdo
+    </a>
 
-<h1>🌈 Disco de Newton e LEDs 💡</h1>
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
 
-<nav>
+        <div class="logo">
+            <div class="mini-disco"></div>
+            <span>Newton<span class="logo-roxo">Lab</span></span>
+        </div>
 
-<a href="#newton">Disco de Newton</a>
+        <!-- BOTÃO HAMBÚRGUER -->
+        <button
+            class="botao-menu"
+            id="botaoMenu"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-<a href="#rgb">LED RGB</a>
+        <!-- MENU -->
+        <nav class="menu" id="menu">
 
-<a href="#ledf">LED F</a>
+            <a href="#inicio">Início</a>
 
-<a href="#flashcards">Flash Cards</a>
+            <a href="#sobre">O Projeto</a>
 
-</nav>
+            <a href="#conceitos">Conceitos</a>
 
-</header>
+            <a href="#acessibilidade">Acessibilidade</a>
 
-<div class="acessibilidade">
+        </nav>
 
-<button onclick="aumentarFonte()">A+</button>
+    </header>
 
-<button onclick="diminuirFonte()">A-</button>
 
-<button onclick="contraste()">🌙 Alto Contraste</button>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main id="conteudo">
 
-<button onclick="lerTexto()">🔊 Ler Página</button>
+        <!-- PRIMEIRA PÁGINA -->
+        <section class="inicio" id="inicio">
 
-</div>
+            <div class="texto-inicio">
 
-<main id="conteudo">
+                <p class="etiqueta">
+                    PROJETO EDUCATIVO
+                </p>
 
-<section id="newton">
+                <h1>
+                    Descobrindo o
+                    <span>Disco de Newton</span>
+                </h1>
 
-<h2>🌈 Disco de Newton</h2>
+                <p class="descricao">
+                    Um projeto interativo para aprender sobre o Disco de
+                    Newton, LED RGB e os efeitos Fade In e Fade Out.
+                </p>
 
-<p>
+                <div class="botoes">
 
-O Disco de Newton demonstra que a luz branca é formada por diversas cores.
-Quando o disco gira rapidamente, nossos olhos misturam essas cores,
-criando a impressão de uma superfície branca.
+                    <a
+                        href="#sobre"
+                        class="botao principal"
+                    >
+                        Começar a explorar
+                    </a>
 
-</p>
+                    <button
+                        id="botaoLeitura"
+                        class="botao secundario"
+                    >
+                        🔊 Ouvir introdução
+                    </button>
 
-<div class="disco" id="disco"></div>
+                </div>
 
-<br>
+            </div>
 
-<button onclick="girarDisco()">▶ Girar Disco</button>
 
-</section>
+            <!-- DISCO -->
+            <div class="area-disco">
 
-<hr>
+                <div
+                    class="disco-newton"
+                    aria-label="Ilustração do Disco de Newton"
+                ></div>
 
-<section id="rgb">
+            </div>
 
-<h2>💡 LED RGB</h2>
+        </section>
 
-<p>
 
-O LED RGB possui três LEDs internos:
+        <!-- SOBRE -->
+        <section class="secao" id="sobre">
 
-🔴 Vermelho
+            <div class="titulo">
 
-🟢 Verde
+                <p class="etiqueta">
+                    INTRODUÇÃO
+                </p>
 
-🔵 Azul
+                <h2>
+                    O que você vai aprender?
+                </h2>
 
-Misturando essas três cores é possível produzir milhões de cores diferentes.
+                <p>
+                    Este site apresenta conceitos de Física e Eletrônica
+                    de maneira visual, simples e interativa.
+                </p>
 
-</p>
+            </div>
 
-</section>
 
-<hr>
+            <div class="cards">
 
-<section id="ledf">
+                <!-- CARD 1 -->
+                <article class="card">
 
-<h2>💡 LED F</h2>
+                    <div class="icone">
+                        🌈
+                    </div>
 
-<p>
+                    <h3>
+                        Disco de Newton
+                    </h3>
 
-O LED F (LED comum de uma única cor) emite apenas uma cor,
-como vermelho, azul, verde, amarelo ou branco.
+                    <p>
+                        Aprenda como as cores presentes no Disco de Newton
+                        podem produzir a sensação da cor branca quando o
+                        disco gira rapidamente.
+                    </p>
 
-É muito utilizado em indicadores eletrônicos.
+                </article>
 
-</p>
 
-</section>
+                <!-- CARD 2 -->
+                <article class="card">
 
-<hr>
+                    <div class="icone">
+                        💡
+                    </div>
 
-<section id="flashcards">
+                    <h3>
+                        LED RGB
+                    </h3>
 
-<h2>🧠 Flash Cards</h2>
+                    <p>
+                        Entenda como as cores vermelho, verde e azul podem
+                        ser combinadas para criar diferentes cores.
+                    </p>
 
-<div class="cards">
+                </article>
 
-<div class="card">
 
-<div class="frente">
-❓ O que é o Disco de Newton?
-</div>
+                <!-- CARD 3 -->
+                <article class="card">
 
-<div class="verso">
-Mostra que a luz branca é formada por várias cores.
-</div>
+                    <div class="icone">
+                        ✨
+                    </div>
 
-</div>
+                    <h3>
+                        Fade In / Fade Out
+                    </h3>
 
-<div class="card">
+                    <p>
+                        Descubra como o brilho de um LED pode aumentar e
+                        diminuir gradualmente.
+                    </p>
 
-<div class="frente">
-❓ O que significa RGB?
-</div>
+                </article>
 
-<div class="verso">
-Red, Green e Blue.
-</div>
+            </div>
 
-</div>
 
-<div class="card">
+            <div class="caixa">
 
-<div class="frente">
-❓ O LED F muda de cor?
-</div>
+                <div>
 
-<div class="verso">
-Não. Ele possui apenas uma cor.
-</div>
+                    <p class="etiqueta">
+                        OBJETIVO
+                    </p>
 
-</div>
+                    <h2>
+                        Aprender de forma interativa
+                    </h2>
 
-</div>
+                </div>
 
-</section>
+                <p>
+                    O objetivo deste projeto é transformar conteúdos de
+                    Física e Eletrônica em uma experiência educativa,
+                    interativa e acessível.
+                </p>
 
-</main>
+            </div>
 
-<script src="script.js"></script>
+        </section>
+
+
+        <!-- CONCEITOS -->
+        <section class="secao" id="conceitos">
+
+            <div class="titulo">
+
+                <p class="etiqueta">
+                    PRÓXIMAS ETAPAS
+                </p>
+
+                <h2>
+                    O que terá no site?
+                </h2>
+
+            </div>
+
+
+            <div class="cards-recursos">
+
+                <article class="recurso">
+
+                    <span>01</span>
+
+                    <h3>
+                        Disco giratório
+                    </h3>
+
+                    <p>
+                        Um Disco de Newton que realmente gira na tela.
+                    </p>
+
+                </article>
+
+
+                <article class="recurso">
+
+                    <span>02</span>
+
+                    <h3>
+                        LED RGB
+                    </h3>
+
+                    <p>
+                        Controles para alterar as cores do LED.
+                    </p>
+
+                </article>
+
+
+                <article class="recurso">
+
+                    <span>03</span>
+
+                    <h3>
+                        Fade In / Fade Out
+                    </h3>
+
+                    <p>
+                        Simulação do brilho aumentando e diminuindo.
+                    </p>
+
+                </article>
+
+
+                <article class="recurso">
+
+                    <span>04</span>
+
+                    <h3>
+                        Flashcards
+                    </h3>
+
+                    <p>
+                        Cartões para revisar os conteúdos estudados.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACESSIBILIDADE -->
+        <section
+            class="secao"
+            id="acessibilidade"
+        >
+
+            <div class="titulo">
+
+                <p class="etiqueta">
+                    ACESSIBILIDADE
+                </p>
+
+                <h2>
+                    Recursos de acessibilidade
+                </h2>
+
+                <p>
+                    Estas ferramentas ajudam a tornar o site mais acessível
+                    para pessoas com baixa visão.
+                </p>
+
+            </div>
+
+
+            <div class="painel-acessibilidade">
+
+                <!-- TAMANHO -->
+                <div class="controle">
+
+                    <div>
+
+                        <strong>
+                            Tamanho da fonte
+                        </strong>
+
+                        <span id="porcentagemFonte">
+                            100%
+                        </span>
+
+                    </div>
+
+                    <div class="botoes-fonte">
+
+                        <button
+                            id="diminuirFonte"
+                            aria-label="Diminuir fonte"
+                        >
+                            A-
+                        </button>
+
+                        <button
+                            id="aumentarFonte"
+                            aria-label="Aumentar fonte"
+                        >
+                            A+
+                        </button>
+
+                        <button id="fonteNormal">
+                            Normal
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTRASTE -->
+                <div class="controle">
+
+                    <div>
+
+                        <strong>
+                            Alto contraste
+                        </strong>
+
+                        <span>
+                            Aumenta a diferença entre fundo e texto.
+                        </span>
+
+                    </div>
+
+                    <button
+                        id="altoContraste"
+                        class="botao-contraste"
+                        aria-pressed="false"
+                    >
+                        Ativar
+                    </button>
+
+                </div>
+
+
+                <!-- LEITURA -->
+                <div class="controle">
+
+                    <div>
+
+                        <strong>
+                            Leitura em voz alta
+                        </strong>
+
+                        <span>
+                            Utiliza a voz disponível no navegador.
+                        </span>
+
+                    </div>
+
+                    <button id="pararLeitura">
+                        Parar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+
+        <p>
+            Projeto educativo sobre o Disco de Newton, LED RGB e Fade In/Fade Out.
+        </p>
+
+        <p>
+            Desenvolvido para fins educacionais.
+        </p>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
 
 </body>
 </html>
