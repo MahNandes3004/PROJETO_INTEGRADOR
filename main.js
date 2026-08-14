@@ -1,35 +1,32 @@
-/* =====================================================
-   MENU HAMBÚRGUER
-===================================================== */
+/* ==========================================
+   MENU
+========================================== */
 
-const menuButton =
-    document.getElementById("menuButton");
+const hamburger =
+    document.getElementById("hamburger");
 
 const mobileMenu =
     document.getElementById("mobileMenu");
 
 
-menuButton.addEventListener("click", () => {
+hamburger.addEventListener("click", () => {
 
-    const isOpen =
+    const open =
         mobileMenu.classList.toggle("open");
 
-
-    menuButton.classList.toggle(
+    hamburger.classList.toggle(
         "active",
-        isOpen
+        open
     );
 
-
-    menuButton.setAttribute(
+    hamburger.setAttribute(
         "aria-expanded",
-        isOpen
+        open
     );
 
-
-    menuButton.setAttribute(
+    hamburger.setAttribute(
         "aria-label",
-        isOpen
+        open
             ? "Fechar menu"
             : "Abrir menu"
     );
@@ -45,9 +42,9 @@ document
 
             mobileMenu.classList.remove("open");
 
-            menuButton.classList.remove("active");
+            hamburger.classList.remove("active");
 
-            menuButton.setAttribute(
+            hamburger.setAttribute(
                 "aria-expanded",
                 "false"
             );
@@ -58,11 +55,11 @@ document
 
 
 
-/* =====================================================
+/* ==========================================
    DISCO DE NEWTON
-===================================================== */
+========================================== */
 
-const newtonDisk =
+const disk =
     document.getElementById("newtonDisk");
 
 const startDisk =
@@ -71,66 +68,33 @@ const startDisk =
 const stopDisk =
     document.getElementById("stopDisk");
 
-const diskSpeed =
-    document.getElementById("diskSpeed");
+const speedRange =
+    document.getElementById("speedRange");
 
-const speedValue =
-    document.getElementById("speedValue");
+const speedNumber =
+    document.getElementById("speedNumber");
 
-const diskStatus =
-    document.getElementById("diskStatus");
+const diskText =
+    document.getElementById("diskText");
 
-const statusDot =
-    document.querySelector(".status-dot");
+const stateLight =
+    document.getElementById("stateLight");
 
 
-let rotating =
+let diskRunning =
     false;
 
-let rotation =
+let diskRotation =
     0;
+
+let diskSpeed =
+    Number(speedRange.value);
 
 let lastTime =
     0;
 
 
-/*
-    Velocidade inicial
-*/
-
-let speed =
-    Number(diskSpeed.value);
-
-
-/*
-    Atualiza o texto
-*/
-
-function updateSpeed() {
-
-    speed =
-        Number(diskSpeed.value);
-
-    speedValue.textContent =
-        speed;
-
-}
-
-
-diskSpeed.addEventListener(
-    "input",
-    updateSpeed
-);
-
-
-updateSpeed();
-
-
-/*
-    Animação do disco
-*/
-
-function animateDisk(time) {
+function rotateDisk(time) {
 
     if (!lastTime) {
 
@@ -148,68 +112,74 @@ function animateDisk(time) {
         time;
 
 
-    if (rotating) {
+    if (diskRunning) {
 
-        rotation +=
-            speed * delta * 0.15;
+        diskRotation +=
+            diskSpeed * delta * 0.12;
 
 
-        newtonDisk.style.transform =
-            `rotate(${rotation}deg)`;
+        disk.style.transform =
+            `rotate(${diskRotation}deg)`;
 
     }
 
 
     requestAnimationFrame(
-        animateDisk
+        rotateDisk
     );
 
 }
 
 
 requestAnimationFrame(
-    animateDisk
+    rotateDisk
 );
 
 
-/*
-    Iniciar
-*/
+speedRange.addEventListener(
+    "input",
+    () => {
+
+        diskSpeed =
+            Number(speedRange.value);
+
+        speedNumber.textContent =
+            diskSpeed;
+
+    }
+);
+
 
 startDisk.addEventListener(
     "click",
     () => {
 
-        rotating =
+        diskRunning =
             true;
 
-        diskStatus.textContent =
+        diskText.textContent =
             "Disco girando";
 
-        statusDot.classList.add(
-            "running"
+        stateLight.classList.add(
+            "active"
         );
 
     }
 );
 
-
-/*
-    Parar
-*/
 
 stopDisk.addEventListener(
     "click",
     () => {
 
-        rotating =
+        diskRunning =
             false;
 
-        diskStatus.textContent =
+        diskText.textContent =
             "Disco parado";
 
-        statusDot.classList.remove(
-            "running"
+        stateLight.classList.remove(
+            "active"
         );
 
     }
@@ -217,40 +187,38 @@ stopDisk.addEventListener(
 
 
 
-/* =====================================================
-   LED RGB
-===================================================== */
+/* ==========================================
+   RGB
+========================================== */
 
-const redSlider =
-    document.getElementById("redSlider");
+const red =
+    document.getElementById("red");
 
-const greenSlider =
-    document.getElementById("greenSlider");
+const green =
+    document.getElementById("green");
 
-const blueSlider =
-    document.getElementById("blueSlider");
-
-
-const redValue =
-    document.getElementById("redValue");
-
-const greenValue =
-    document.getElementById("greenValue");
-
-const blueValue =
-    document.getElementById("blueValue");
+const blue =
+    document.getElementById("blue");
 
 
-const rgbLight =
-    document.getElementById("rgbLight");
+const rValue =
+    document.getElementById("rValue");
+
+const gValue =
+    document.getElementById("gValue");
+
+const bValue =
+    document.getElementById("bValue");
 
 
-const ledBulb =
-    document.querySelector(".led-bulb");
+const rgbBulb =
+    document.getElementById("rgbBulb");
 
+const rgbGlow =
+    document.getElementById("rgbGlow");
 
-const rgbValue =
-    document.getElementById("rgbValue");
+const rgbCode =
+    document.getElementById("rgbCode");
 
 
 const resetRGB =
@@ -259,62 +227,56 @@ const resetRGB =
 
 function updateRGB() {
 
-    const red =
-        Number(redSlider.value);
+    const r =
+        Number(red.value);
 
-    const green =
-        Number(greenSlider.value);
+    const g =
+        Number(green.value);
 
-    const blue =
-        Number(blueSlider.value);
+    const b =
+        Number(blue.value);
 
 
     const color =
-        `rgb(${red}, ${green}, ${blue})`;
+        `rgb(${r}, ${g}, ${b})`;
 
 
-    redValue.textContent =
-        red;
+    rValue.textContent = r;
 
-    greenValue.textContent =
-        green;
+    gValue.textContent = g;
 
-    blueValue.textContent =
-        blue;
+    bValue.textContent = b;
 
 
-    rgbLight.style.background =
+    rgbBulb.style.background =
         color;
 
 
-    ledBulb.style.background =
+    rgbBulb.style.boxShadow =
+        `0 0 55px ${color}`;
+
+
+    rgbGlow.style.background =
         color;
 
 
-    ledBulb.style.boxShadow =
-        `0 0 35px ${color},
-         inset 0 -20px 35px rgba(0,0,0,.15)`;
-
-
-    rgbValue.textContent =
-        `RGB(${red}, ${green}, ${blue})`;
+    rgbCode.textContent =
+        `RGB(${r}, ${g}, ${b})`;
 
 }
 
 
-redSlider.addEventListener(
+red.addEventListener(
     "input",
     updateRGB
 );
 
-
-greenSlider.addEventListener(
+green.addEventListener(
     "input",
     updateRGB
 );
 
-
-blueSlider.addEventListener(
+blue.addEventListener(
     "input",
     updateRGB
 );
@@ -324,15 +286,11 @@ resetRGB.addEventListener(
     "click",
     () => {
 
-        redSlider.value =
-            255;
+        red.value = 255;
 
-        greenSlider.value =
-            80;
+        green.value = 70;
 
-        blueSlider.value =
-            80;
-
+        blue.value = 70;
 
         updateRGB();
 
@@ -344,12 +302,12 @@ updateRGB();
 
 
 
-/* =====================================================
-   FADE IN / FADE OUT
-===================================================== */
+/* ==========================================
+   FADE
+========================================== */
 
-const fadeLight =
-    document.getElementById("fadeLight");
+const fadeLamp =
+    document.getElementById("fadeLamp");
 
 const startFade =
     document.getElementById("startFade");
@@ -358,19 +316,27 @@ const stopFade =
     document.getElementById("stopFade");
 
 
-let fadeAnimation = null;
+let fadeRunning =
+    false;
 
 let fadeValue =
-    0.1;
+    0.12;
 
 let fadeDirection =
     1;
 
 
-function animateFade() {
+function fadeAnimation() {
+
+    if (!fadeRunning) {
+
+        return;
+
+    }
+
 
     fadeValue +=
-        0.008 * fadeDirection;
+        0.007 * fadeDirection;
 
 
     if (fadeValue >= 1) {
@@ -384,10 +350,10 @@ function animateFade() {
     }
 
 
-    if (fadeValue <= 0.08) {
+    if (fadeValue <= .08) {
 
         fadeValue =
-            0.08;
+            .08;
 
         fadeDirection =
             1;
@@ -395,14 +361,13 @@ function animateFade() {
     }
 
 
-    fadeLight.style.opacity =
+    fadeLamp.style.opacity =
         fadeValue;
 
 
-    fadeAnimation =
-        requestAnimationFrame(
-            animateFade
-        );
+    requestAnimationFrame(
+        fadeAnimation
+    );
 
 }
 
@@ -411,12 +376,12 @@ startFade.addEventListener(
     "click",
     () => {
 
-        if (!fadeAnimation) {
+        if (!fadeRunning) {
 
-            fadeAnimation =
-                requestAnimationFrame(
-                    animateFade
-                );
+            fadeRunning =
+                true;
+
+            fadeAnimation();
 
         }
 
@@ -428,25 +393,17 @@ stopFade.addEventListener(
     "click",
     () => {
 
-        if (fadeAnimation) {
-
-            cancelAnimationFrame(
-                fadeAnimation
-            );
-
-            fadeAnimation =
-                null;
-
-        }
+        fadeRunning =
+            false;
 
     }
 );
 
 
 
-/* =====================================================
+/* ==========================================
    FLASHCARDS
-===================================================== */
+========================================== */
 
 const flashcards =
     document.querySelectorAll(
@@ -456,21 +413,16 @@ const flashcards =
 
 flashcards.forEach(card => {
 
-
-    function flipCard() {
-
-        card.classList.toggle(
-            "flipped"
-        );
-
-    }
-
-
     card.addEventListener(
         "click",
-        flipCard
-    );
+        () => {
 
+            card.classList.toggle(
+                "flipped"
+            );
+
+        }
+    );
 
     card.addEventListener(
         "keydown",
@@ -483,7 +435,9 @@ flashcards.forEach(card => {
 
                 event.preventDefault();
 
-                flipCard();
+                card.classList.toggle(
+                    "flipped"
+                );
 
             }
 
@@ -494,9 +448,9 @@ flashcards.forEach(card => {
 
 
 
-/* =====================================================
-   ACESSIBILIDADE — FONTE
-===================================================== */
+/* ==========================================
+   FONTE
+========================================== */
 
 const fontMinus =
     document.getElementById("fontMinus");
@@ -504,28 +458,26 @@ const fontMinus =
 const fontPlus =
     document.getElementById("fontPlus");
 
-const fontReset =
-    document.getElementById("fontReset");
+const fontNormal =
+    document.getElementById("fontNormal");
 
-const fontPercent =
-    document.getElementById("fontPercent");
+const fontValue =
+    document.getElementById("fontValue");
 
 
 let fontScale =
     Number(
-        localStorage.getItem(
-            "fontScale"
-        )
+        localStorage.getItem("fontScale")
     ) || 1;
 
 
 function updateFont() {
 
     fontScale =
-        Math.min(
-            1.4,
-            Math.max(
-                .85,
+        Math.max(
+            .85,
+            Math.min(
+                1.4,
                 fontScale
             )
         );
@@ -537,7 +489,7 @@ function updateFont() {
     );
 
 
-    fontPercent.textContent =
+    fontValue.textContent =
         `${Math.round(fontScale * 100)}%`;
 
 
@@ -553,8 +505,7 @@ fontMinus.addEventListener(
     "click",
     () => {
 
-        fontScale -=
-            .1;
+        fontScale -= .1;
 
         updateFont();
 
@@ -566,8 +517,7 @@ fontPlus.addEventListener(
     "click",
     () => {
 
-        fontScale +=
-            .1;
+        fontScale += .1;
 
         updateFont();
 
@@ -575,7 +525,7 @@ fontPlus.addEventListener(
 );
 
 
-fontReset.addEventListener(
+fontNormal.addEventListener(
     "click",
     () => {
 
@@ -592,9 +542,9 @@ updateFont();
 
 
 
-/* =====================================================
-   ACESSIBILIDADE — ALTO CONTRASTE
-===================================================== */
+/* ==========================================
+   CONTRASTE
+========================================== */
 
 const contrastButton =
     document.getElementById(
@@ -602,9 +552,9 @@ const contrastButton =
     );
 
 
-let highContrast =
+let contrast =
     localStorage.getItem(
-        "highContrast"
+        "contrast"
     ) === "true";
 
 
@@ -612,31 +562,31 @@ function updateContrast() {
 
     document.body.classList.toggle(
         "high-contrast",
-        highContrast
+        contrast
     );
-
-
-    contrastButton.textContent =
-        highContrast
-            ? "Desativar"
-            : "Ativar";
 
 
     contrastButton.classList.toggle(
         "active",
-        highContrast
+        contrast
     );
+
+
+    contrastButton.textContent =
+        contrast
+            ? "Desativar"
+            : "Ativar";
 
 
     contrastButton.setAttribute(
         "aria-pressed",
-        highContrast
+        contrast
     );
 
 
     localStorage.setItem(
-        "highContrast",
-        highContrast
+        "contrast",
+        contrast
     );
 
 }
@@ -646,8 +596,8 @@ contrastButton.addEventListener(
     "click",
     () => {
 
-        highContrast =
-            !highContrast;
+        contrast =
+            !contrast;
 
         updateContrast();
 
@@ -659,13 +609,13 @@ updateContrast();
 
 
 
-/* =====================================================
-   LEITURA EM VOZ ALTA
-===================================================== */
+/* ==========================================
+   LEITURA
+========================================== */
 
-const readHero =
+const heroRead =
     document.getElementById(
-        "readHero"
+        "heroRead"
     );
 
 
@@ -675,14 +625,14 @@ const stopSpeech =
     );
 
 
-function speakIntroduction() {
+function readPage() {
 
     if (
         !("speechSynthesis" in window)
     ) {
 
         alert(
-            "Seu navegador não possui suporte para leitura em voz alta."
+            "Seu navegador não suporta leitura em voz alta."
         );
 
         return;
@@ -699,26 +649,14 @@ function speakIntroduction() {
 
         Este é um projeto educativo
         sobre o Disco de Newton,
-        o LED RGB e os efeitos
-        Fade In e Fade Out.
+        LED RGB e Fade In e Fade Out.
 
-        No Disco de Newton,
-        você pode experimentar a rotação
-        de um disco dividido em sete cores.
-
-        No experimento do LED RGB,
-        você pode misturar vermelho,
-        verde e azul.
-
-        Nos flashcards,
-        você pode revisar os conceitos
-        estudados.
-
-        O site também possui recursos
-        de acessibilidade,
-        como aumento de fonte,
-        alto contraste
-        e leitura em voz alta.
+        Você pode experimentar
+        um Disco de Newton giratório,
+        criar cores usando um LED RGB,
+        testar o efeito Fade In e Fade Out
+        e revisar os conteúdos
+        utilizando os flashcards.
 
     `;
 
@@ -735,9 +673,6 @@ function speakIntroduction() {
     speech.rate =
         .9;
 
-    speech.pitch =
-        1;
-
 
     speechSynthesis.speak(
         speech
@@ -746,9 +681,9 @@ function speakIntroduction() {
 }
 
 
-readHero.addEventListener(
+heroRead.addEventListener(
     "click",
-    speakIntroduction
+    readPage
 );
 
 
@@ -757,8 +692,7 @@ stopSpeech.addEventListener(
     () => {
 
         if (
-            "speechSynthesis"
-            in window
+            "speechSynthesis" in window
         ) {
 
             speechSynthesis.cancel();
@@ -767,38 +701,3 @@ stopSpeech.addEventListener(
 
     }
 );
-
-
-
-/* =====================================================
-   ROLAGEM SUAVE PARA NAVEGAÇÃO
-===================================================== */
-
-document
-    .querySelectorAll('a[href^="#"]')
-    .forEach(link => {
-
-        link.addEventListener(
-            "click",
-            event => {
-
-                const target =
-                    document.querySelector(
-                        link.getAttribute("href")
-                    );
-
-
-                if (target) {
-
-                    event.preventDefault();
-
-                    target.scrollIntoView({
-                        behavior: "smooth"
-                    });
-
-                }
-
-            }
-        );
-
-    });
