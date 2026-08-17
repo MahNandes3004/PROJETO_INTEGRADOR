@@ -1,93 +1,84 @@
 <!DOCTYPE html>
-<html lang="pt-br" dir="ltr">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luz e Cores: LEDs e Disco de Newton</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Óptica e Luz: LED RGB e Disco de Newton</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Barra de Acessibilidade -->
-    <div class="accessibility-bar" role="toolbar" aria-label="Controles de Acessibilidade">
-        <button id="btn-contrast" aria-pressed="false">Alto Contraste</button>
-        <button id="btn-increase-font" aria-label="Aumentar fonte">A+</button>
-        <button id="btn-decrease-font" aria-label="Diminuir fonte">A-</button>
+  <!-- Barra de Acessibilidade -->
+  <header class="top-bar">
+    <div class="logo">Oásis da Luz</div>
+    <div class="accessibility-tools">
+      <button id="btn-increase" aria-label="Aumentar fonte">A+</button>
+      <button id="btn-decrease" aria-label="Diminuir fonte">A-</button>
+      <button id="btn-contrast" aria-label="Alternar alto contraste">🌓 Contraste</button>
+      <button id="btn-speak" aria-label="Ouvir texto do site">🔊 Ouvir Site</button>
     </div>
+    <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">☰</button>
+  </header>
 
-    <!-- Cabeçalho e Menu Hambúrguer -->
-    <header>
-        <div class="logo">Mundo das Cores</div>
-        <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        <nav id="nav-menu" class="hidden">
-            <ul>
-                <li><a href="#intro">Introdução</a></li>
-                <li><a href="#rgb">LED RGB</a></li>
-                <li><a href="#fade">Fade In/Out</a></li>
-                <li><a href="#newton">Disco de Newton</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Menu Hambúrguer -->
+  <nav class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="#intro">Introdução</a></li>
+      <li><a href="#leds">LED RGB & Fade</a></li>
+      <li><a href="#newton">Disco de Newton</a></li>
+      <li><a href="#cards">Flashcards</a></li>
+    </ul>
+  </nav>
 
-    <main id="conteudo-principal">
-        <!-- Introdução -->
-        <section id="intro">
-            <h1>A Magia da Luz e das Cores</h1>
-            <p>Bem-vindo! Aqui vamos explorar como a luz funciona, desde a tecnologia dos LEDs até as descobertas de Isaac Newton. A luz branca que vemos é, na verdade, a mistura de todas as cores. Vamos descobrir como isso funciona na eletrônica e na física de forma interativa!</p>
-        </section>
+  <main>
+    <!-- Seção de Introdução -->
+    <section id="intro" class="hero-section">
+      <div class="hero-text">
+        <h1>Explore a Física das Cores</h1>
+        <p>A luz branca que enxergamos no dia a dia é, na verdade, a soma de diversas cores do espectro visível. Através da tecnologia do LED RGB e dos experimentos clássicos de Isaac Newton, podemos entender como a mistura e a intensidade de luzes primárias criam o universo de cores ao nosso redor.</p>
+      </div>
+    </section>
 
-        <!-- Flashcards -->
-        <section id="rgb">
-            <h2>Tecnologia LED (Flashcards)</h2>
-            <p>Passe o mouse (ou clique) nos cartões para ver o conteúdo.</p>
-            
-            <div class="flashcards-container">
-                <!-- Card 1: RGB -->
-                <div class="card" tabindex="0">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <h3>LED RGB</h3>
-                        </div>
-                        <div class="card-back">
-                            <p>RGB significa Red (Vermelho), Green (Verde) e Blue (Azul). Um LED RGB possui três pequenos LEDs dentro dele. Misturando essas três luzes em diferentes intensidades, podemos criar qualquer cor imaginável!</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Seção LEDs -->
+    <section id="leds" class="content-section">
+      <h2>LED RGB e Efeito Fade In / Fade Out</h2>
+      <p>Um LED RGB combina três diodos de luz nas cores vermelha (Red), verde (Green) e azul (Blue) num único componente. Ajustando a intensidade de cada cor, geramos milhões de tonalidades. O efeito <strong>Fade In / Fade Out</strong> ocorre quando a intensidade da luz transita gradualmente entre aceso e apagado.</p>
+      <div class="led-demo-box">
+        <div class="led-light"></div>
+      </div>
+    </section>
 
-                <!-- Card 2: Fade In / Fade Out -->
-                <div class="card" tabindex="0">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <h3>LED Fade In / Fade Out</h3>
-                        </div>
-                        <div class="card-back">
-                            <p>O efeito "Fade" é o aumento (Fade In) ou diminuição (Fade Out) gradual da luz. Em eletrônica, fazemos isso usando PWM, que liga e desliga o LED tão rápido que nossos olhos veem apenas uma mudança suave de brilho.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- Seção Disco de Newton -->
+    <section id="newton" class="content-section">
+      <h2>O Disco de Newton</h2>
+      <p>Este experimento demonstra a decomposição e a síntese da luz. Quando o disco colorido gira em alta velocidade, o olho humano não consegue processar as cores separadamente, resultando na ilusão da cor branca.</p>
+      
+      <div class="disk-container">
+        <div id="newton-disk" class="newton-disk"></div>
+      </div>
+      <button id="btn-spin" class="action-btn">Girar Disco</button>
+    </section>
 
-        <!-- Disco de Newton -->
-        <section id="newton">
-            <h2>O Disco de Newton</h2>
-            <p>Isaac Newton provou que a luz branca é composta pelas cores do arco-íris. Para ver a "mágica acontecer", clique no botão para girar o disco rapidamente. Nossos olhos misturam as cores em movimento, e o disco parecerá esbranquiçado!</p>
-            
-            <div class="newton-container">
-                <div id="disco" class="disco-de-newton" role="img" aria-label="Disco colorido com as cores do arco-íris"></div>
-                <button id="btn-spin">Girar Disco</button>
-            </div>
-        </section>
-    </main>
+    <!-- Seção Flashcards -->
+    <section id="cards" class="content-section">
+      <h2>Flashcards Interativos</h2>
+      <div class="cards-grid">
+        <div class="flashcard" tabindex="0" role="button" aria-label="Flashcard 1: O que é síntese aditiva?">
+          <div class="card-inner">
+            <div class="card-front">O que é Síntese Aditiva?</div>
+            <div class="card-back">É a mistura de luzes coloridas (Red, Green, Blue) que, juntas em intensidade máxima, formam a luz branca.</div>
+          </div>
+        </div>
+        <div class="flashcard" tabindex="0" role="button" aria-label="Flashcard 2: Como funciona o Fade In?">
+          <div class="card-inner">
+            <div class="card-front">Como funciona o Fade In / Out?</div>
+            <div class="card-back">Através da variação contínua da tensão elétrica (PWM), fazendo a luz acender ou apagar suavemente.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-        <p>Projeto de Acessibilidade e Tecnologia - Hospedado no GitHub Pages</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
